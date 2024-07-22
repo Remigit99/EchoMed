@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@zegocloud/zego-uikit-prebuilt": "^2.6.0",
+    "firebase": "^10.12.4",
+    "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.5"
+    "zego-express-engine-webrtc": "^3.5.0"
   },
   "devDependencies": {
     "eslint": "^8",

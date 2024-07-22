@@ -1,0 +1,87 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 6rem;
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+  }
+  
+  .mainContainer{
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 7rem;
+  }
+  
+  .loginHeader{
+    margin-bottom: 2.5rem;
+  }
+  
+  .appointForm{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .inputGroup{
+    background-color: rgb(82, 82, 82);
+    border-radius: 0.5rem;
+    padding: 0.15rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .mainInput{
+    width: 100%;
+    padding: 0.5rem;
+    background-color: transparent !important;
+    font-family: inherit;
+    outline: none !important;
+    border: none  !important; 
+    color: white;
+  }
+  
+  .PhoneInput--focus{
+    background-color: transparent !important;
+    font-family: inherit;
+    outline: none !important;
+    border: none  !important; 
+  }
+  
+  .mainInput::placeholder{
+    color: white;
+  }
+  
+  
+  .icons{
+    width: 1.5rem;
+  
+  }
+  
+  .loginBtn, .registerBtn{
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-family: inherit;
+    background-color: chartreuse;
+    transition: all 300ms ease-in-out;
+    color: white;
+    font-size: 1.1rem;
+    outline: none;
+    border: none;
+  }
+  
+  .registerBtn{
+    background-color: coral;
+  }
+  
+  .loginBtn:hover, .registerBtn:hover{
+    opacity: 0.65;
+  }
+  
+  
+  .onBoardingImg{
+    border-radius: 2rem;
+  }

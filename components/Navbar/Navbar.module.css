@@ -1,0 +1,33 @@
+
+
+.navBar{
+    background-color: white;
+    height: 4.5rem;
+    display: grid;
+    place-items: center;
+    backdrop-filter: blur(20px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+
+.container{
+    width: 80%;
+}
+
+.navContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+.navLinks{
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    font-weight: 600;
+}
+
