@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 
 
 
- const Login = () => {
+ const SignIn = () => {
    
     
     //   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -144,4 +144,4 @@ import { useState, useEffect } from "react";
       );
     }
     
-    export default Login;
+    export default SignIn;

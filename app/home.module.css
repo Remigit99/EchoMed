@@ -14,7 +14,7 @@
   margin: 0 auto;
 }
 
-.featuresContainer{
+.featuresContainer {
   width: 60%;
   margin: 0 auto;
 }
@@ -57,19 +57,19 @@
   height: 450;
 }
 
-.featuresHeader{
+.featuresHeader {
   margin: 3rem 0;
   text-align: center;
 }
 
-.features{
+.features {
   margin: 1rem 0;
 }
 
 .medSafeChat,
 .easyAppoint,
 .docFiles,
-.prescriber{
+.prescriber {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6rem;
@@ -77,3 +77,46 @@
   place-items: center;
 }
 
+/* Mobile */
+@media (max-width: 700px) {
+
+  .container {
+    width: 98%;
+    margin: 0 auto;
+  }
+
+/*==== home Header ===*/
+
+.headerImg{
+  width: 96%;
+}
+
+
+
+  
+  .featuresContainer {
+    width: 96%;
+    margin: 0 auto;
+  }
+
+  .headerContainer {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+
+  .featuresHeader {
+    margin: 3rem 0 1rem;
+  }
+
+  .medSafeChat,
+  .easyAppoint,
+  .docFiles,
+  .prescriber {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Tablet and Smaller Desktop */
+  @media (min-width: 701px) and (max-width: 1120px) {
+  }
+}

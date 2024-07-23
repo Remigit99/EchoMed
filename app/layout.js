@@ -1,5 +1,6 @@
 import { Inter, Quicksand } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar/Navbar";
 
 
 const quickSand = Quicksand({ 
@@ -15,7 +16,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={quickSand.className}>{children}</body>
+      <body className={quickSand.className}>
+        <Navbar />
+        {children}
+        </body>
     </html>
   );
 }

@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import homeStyles from "./home.module.css";
 import PatientDoctorVideo from "./Video/PatientDoctorVideo";
-import Login from "./Login/page";
+import Login from "./SignIn/page";
 
 import Navbar from "@/components/Navbar/Navbar";
 import Link from "next/link";
@@ -35,6 +35,7 @@ export default function Home() {
                 height={500}
                 width={680}
                 alt="header_Image"
+                className={homeStyles.headerImg}
               />
             </div>
           </div>
@@ -52,6 +53,10 @@ export default function Home() {
                 <p>High-definition Encrypted Video
                   calls for secure consultation
                 </p>
+
+                <div className={homeStyles.btns}>
+                <button>Learn More</button>
+              </div>
               </div>
               <div className={homeStyles.medSafeChatRight}>
                 <Image
@@ -76,6 +81,10 @@ export default function Home() {
               <h3>Easy Appoint</h3>
                 <p>Book, Reschedule and Manage Appointments Effortlessly
                 </p>
+
+                <div className={homeStyles.btns}>
+                <button>Schedule Now</button>
+              </div>
               </div>
             </div>
 
@@ -84,6 +93,9 @@ export default function Home() {
               <h3>DocFiles</h3>
                 <p>Secure access to your child&apos;s health record
                 </p>
+                <div className={homeStyles.btns}>
+                <button>Manage Files</button>
+              </div>
               </div>
               <div className={homeStyles.docFilesRight}>
               <Image
@@ -107,6 +119,9 @@ export default function Home() {
               <div className={homeStyles.prescriberRight}>
               <h3>Prescriber-Pro</h3>
                 <p>Convienent Prescription handling and renewals </p>
+                <div className={homeStyles.btns}>
+                <button>Book Now</button>
+              </div>
               </div>
             </div>
 
