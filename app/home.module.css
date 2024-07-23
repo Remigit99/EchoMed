@@ -4,18 +4,20 @@
     min-height: 100vh;
   } */
 
-.header{
-  background-color: #FFDAB9;
+.header {
+  background-color: #ffdab9;
   padding: 6rem 0 2rem;
-
-
-  }
+}
 
 .container {
   width: 80%;
   margin: 0 auto;
 }
 
+.featuresContainer{
+  width: 60%;
+  margin: 0 auto;
+}
 
 .headerContainer {
   display: grid;
@@ -25,33 +27,53 @@
   gap: 5rem;
 }
 
-
-.headerLeft h1{
-    font-size: 3rem;
+.headerLeft h1 {
+  font-size: 3rem;
 }
 
-.headerLeft p{
-    font-size: 1.1rem;
-    font-weight: 400;
+.headerLeft p {
+  font-size: 1.1rem;
+  font-weight: 400;
 }
 
-.btns{
-    margin: 2rem 0;
+.btns {
+  margin: 2rem 0;
 }
 
-.btns button{
-    padding: 0.8rem 1.3rem;
-    background-color: #FF7F50;
-    border: none;
-    outline: none;
-    font-weight: 600;
-border-radius: 0.6rem;
-color: white;
-font-size: 1rem;
-cursor: pointer;
+.btns button {
+  padding: 0.8rem 1.3rem;
+  background-color: #ff7f50;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  border-radius: 0.6rem;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.headerRight img{
-    width: 600;
-    height: 450;
+.headerRight img {
+  width: 600;
+  height: 450;
 }
+
+.featuresHeader{
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.features{
+  margin: 1rem 0;
+}
+
+.medSafeChat,
+.easyAppoint,
+.docFiles,
+.prescriber{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  padding: 3rem 0;
+  place-items: center;
+}
+
