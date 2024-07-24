@@ -4,6 +4,12 @@
 }
 
 
+/*=== Testimonial Header ====*/
+.testimonialHeader{
+  text-align: center;
+}
+
+
 
 /* .headerContainer{
   background-color: #ff7f50;
@@ -15,7 +21,7 @@
 
 
 
-  
+
   @media (min-width: 701px) and (max-width: 1120px) {
   }
 }
