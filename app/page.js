@@ -139,7 +139,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={styles.cta}>
+        {/* <section className={styles.cta}>
           <div>
             <div className={styles.ctaLeft}>
               <h1>Ready to Experience the Future of Pediatic Care</h1>
@@ -157,7 +157,7 @@ export default function Home() {
               />
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
     </main>
   );
