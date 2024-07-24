@@ -138,6 +138,26 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <section className={styles.cta}>
+          <div>
+            <div className={styles.ctaLeft}>
+              <h1>Ready to Experience the Future of Pediatic Care</h1>
+              <div className={homeStyles.btns}>
+                <button>Sign Up</button>
+              </div>
+            </div>
+            <div className={styles.ctaRight}>
+              <Image
+              src="/assets/images/father_child.png"
+              alt="Father_child"
+              width={300}
+              height={400}
+
+              />
+            </div>
+          </div>
+        </section>
       </div>
     </main>
   );
