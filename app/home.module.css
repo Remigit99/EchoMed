@@ -75,26 +75,26 @@
   gap: 6rem;
   padding: 3rem 0;
   place-items: center;
+
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
 }
 
 /* Mobile */
 @media (max-width: 700px) {
-
   .container {
     width: 94%;
     margin: 0 auto;
   }
 
-/*==== home Header ===*/
+  /*==== home Header ===*/
 
-.headerImg{
-  width: 96%;
-  height: 300px;
-}
+  .headerImg {
+    width: 96%;
+    height: 300px;
+  }
 
-
-
-  
   .featuresContainer {
     width: 94%;
     margin: 0 auto;
@@ -113,8 +113,10 @@
   .easyAppoint,
   .docFiles,
   .prescriber {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
   }
 
   /* Tablet and Smaller Desktop */

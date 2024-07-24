@@ -1,19 +1,9 @@
-.main {
-  /* background-color: #ff7f50; */
-  min-height: 100vh;
-}
-
 
 /*=== Testimonial Header ====*/
 .testimonialHeader{
   text-align: center;
 }
 
-
-
-/* .headerContainer{
-  background-color: #ff7f50;
-} */
 
 /* Mobile */
 @media (max-width: 700px) {
