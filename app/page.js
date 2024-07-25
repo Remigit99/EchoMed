@@ -4,7 +4,10 @@ import homeStyles from "./home.module.css";
 import PatientDoctorVideo from "./Video/PatientDoctorVideo";
 import Login from "./SignIn/page";
 
+import { IoArrowDownCircleSharp } from "react-icons/io5";
+
 import Navbar from "@/components/Navbar/Navbar";
+import { faqsData } from "@/Data/faqsData";
 import Link from "next/link";
 // import TestiminialSlider from "@/components/TestimonialSlider/TestiminialSlider";
 
@@ -19,9 +22,11 @@ export default function Home() {
             className={`${homeStyles.container} ${homeStyles.headerContainer}`}
           >
             <div className={homeStyles.headerLeft}>
-              <h1>Experience
-              <span className={homeStyles.pedCare}> Pediatric Care </span>
-              Like Never Before!</h1>
+              <h1>
+                Experience
+                <span className={homeStyles.pedCare}> Pediatric Care </span>
+                Like Never Before!
+              </h1>
               <p>
                 Connect with Top Pediatricians from the comfort of your Home
               </p>
@@ -142,48 +147,51 @@ export default function Home() {
         </section>  */}
 
         <section className={homeStyles.cta}>
-          <div className={homeStyles.ctaMain}>  
+          <div className={homeStyles.ctaMain}>
             <div className={homeStyles.ctaLeft}>
-              
-              <h3>Ready to Experience the Future of Pediatic Care</h3>
+              <h3>Ready to Experience the Future of Pediatric Care</h3>
 
               <div className={homeStyles.ctaBtns}>
-
-              <div className={homeStyles.ctaBtn}>
-                <button>Sign Up Now</button>
+                <div className={homeStyles.ctaBtn}>
+                  <button>Sign Up Now</button>
+                </div>
+                <div className={homeStyles.ctaBtn}>
+                  <button>Contact Us</button>
+                </div>
               </div>
-              <div className={homeStyles.ctaBtn}>
-                <button>Contact Us</button>
-              </div>
-              </div>
-           
             </div>
             <div className={homeStyles.ctaRight}>
               <Image
-              src="/assets/images/fatherD.png"
-              alt="Father_child"
-              width={340}
-              height={290}
-
+                src="/assets/images/fatherD.png"
+                alt="Father_child"
+                width={340}
+                height={290}
               />
             </div>
           </div>
         </section>
 
-          {/* FAQs */}
+        {/* FAQs */}
 
-          <section>
-            <div className={homeStyles.faqsContainer}>
-
-              <div className={homeStyles.faqsHeader}>
-                <h2>Frequently Asked Questions (FAQs)</h2>
-              </div>
-              <div className={homeStyles.faqsMain}>
-
-              </div>
+        <section className={homeStyles.faqs}>
+          <div className={homeStyles.faqsContainer}>
+            <div className={homeStyles.faqsHeader}>
+              <h2>Frequently Asked Questions (FAQs)</h2>
             </div>
-          </section>
-
+            <div className={homeStyles.faqsMain}>
+              {faqsData.map(({ id, question, answer }) => (
+                <div key={id}>
+                  <div className={homeStyles.questionHeader}>
+                    <h3>{question}</h3>
+                    <span>
+                    <IoArrowDownCircleSharp />
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </div>
     </main>
   );
