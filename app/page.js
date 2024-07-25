@@ -6,7 +6,7 @@ import Login from "./SignIn/page";
 
 import Navbar from "@/components/Navbar/Navbar";
 import Link from "next/link";
-import TestiminialSlider from "@/components/TestimonialSlider/TestiminialSlider";
+// import TestiminialSlider from "@/components/TestimonialSlider/TestiminialSlider";
 
 export default function Home() {
   return (
@@ -19,7 +19,9 @@ export default function Home() {
             className={`${homeStyles.container} ${homeStyles.headerContainer}`}
           >
             <div className={homeStyles.headerLeft}>
-              <h1>Experience Pediatric Care Like Never Before</h1>
+              <h1>Experience
+              <span className={homeStyles.pedCare}> Pediatric Care </span>
+              Like Never Before!</h1>
               <p>
                 Connect with Top Pediatricians from the comfort of your Home
               </p>
@@ -33,8 +35,8 @@ export default function Home() {
             <div className={homeStyles.headerRight}>
               <Image
                 src="/assets/images/headerImg.png"
-                height={500}
-                width={680}
+                height={450}
+                width={600}
                 alt="header_Image"
                 className={homeStyles.headerImg}
               />
@@ -46,7 +48,7 @@ export default function Home() {
           className={`${homeStyles.featuresContainer} ${homeStyles.mainFeatures}`}
         >
           <div className={homeStyles.featuresHeader}>
-            <h1>Why Choose Our Platform </h1>
+            <h1>Why Choose Our Platform? </h1>
           </div>
 
           <div className={homeStyles.features}>
@@ -58,12 +60,12 @@ export default function Home() {
                 </p>
 
                 <div className={homeStyles.btns}>
-                  <button>Learn More</button>
+                  <button>Schedule Now</button>
                 </div>
               </div>
               <div className={homeStyles.medSafeChatRight}>
                 <Image
-                  src="/assets/images/MedSafe-Chat.png"
+                  src="/assets/images/MedSafeChat.png"
                   width={400}
                   height={300}
                   alt="MedSafe Image"
@@ -74,7 +76,7 @@ export default function Home() {
             <div className={homeStyles.easyAppoint}>
               <div className={homeStyles.easyAppointLeft}>
                 <Image
-                  src="/assets/images/Easy-Appoint.png"
+                  src="/assets/images/EasyAppoint.png"
                   width={400}
                   height={300}
                   alt="Easy-Appoint"
@@ -85,7 +87,7 @@ export default function Home() {
                 <p>Book, Reschedule and Manage Appointments Effortlessly</p>
 
                 <div className={homeStyles.btns}>
-                  <button>Schedule Now</button>
+                  <button>Order Now</button>
                 </div>
               </div>
             </div>
@@ -100,7 +102,7 @@ export default function Home() {
               </div>
               <div className={homeStyles.docFilesRight}>
                 <Image
-                  src="/assets/images/DocFiles.png"
+                  src="/assets/images/DocFile.png"
                   width={400}
                   height={300}
                   alt="DocFiles"
@@ -111,7 +113,7 @@ export default function Home() {
             <div className={homeStyles.prescriber}>
               <div className={homeStyles.prescriberLeft}>
                 <Image
-                  src="/assets/images/Prescriber-Pro.png"
+                  src="/assets/images/Prescriber.png"
                   width={400}
                   height={300}
                   alt="Prescriber-Pro"
@@ -128,36 +130,60 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={styles.testimonial}>
+        {/* <section className={styles.testimonial}>
           <div className={styles.testimonialHeader}>
             <h1>What People say</h1>
 
-            {/* Testimonial Slider */}
+            Testimonial Slider
             <div className={styles.testimonialSlider}>
               <TestiminialSlider />
             </div>
           </div>
-        </section>
+        </section>  */}
 
-        {/* <section className={styles.cta}>
-          <div>
-            <div className={styles.ctaLeft}>
-              <h1>Ready to Experience the Future of Pediatic Care</h1>
-              <div className={homeStyles.btns}>
-                <button>Sign Up</button>
+        <section className={homeStyles.cta}>
+          <div className={homeStyles.ctaMain}>  
+            <div className={homeStyles.ctaLeft}>
+              
+              <h3>Ready to Experience the Future of Pediatic Care</h3>
+
+              <div className={homeStyles.ctaBtns}>
+
+              <div className={homeStyles.ctaBtn}>
+                <button>Sign Up Now</button>
               </div>
+              <div className={homeStyles.ctaBtn}>
+                <button>Contact Us</button>
+              </div>
+              </div>
+           
             </div>
-            <div className={styles.ctaRight}>
+            <div className={homeStyles.ctaRight}>
               <Image
-              src="/assets/images/father_child.png"
+              src="/assets/images/fatherD.png"
               alt="Father_child"
-              width={300}
-              height={400}
+              width={340}
+              height={290}
 
               />
             </div>
           </div>
-        </section> */}
+        </section>
+
+          {/* FAQs */}
+
+          <section>
+            <div className={homeStyles.faqsContainer}>
+
+              <div className={homeStyles.faqsHeader}>
+                <h2>Frequently Asked Questions (FAQs)</h2>
+              </div>
+              <div className={homeStyles.faqsMain}>
+
+              </div>
+            </div>
+          </section>
+
       </div>
     </main>
   );

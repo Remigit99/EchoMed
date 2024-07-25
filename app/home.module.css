@@ -6,7 +6,7 @@
 
 .header {
   background-color: #ffdab9;
-  padding: 6rem 0 2rem;
+  padding: 8rem 0 2rem;
 }
 
 .container {
@@ -21,14 +21,23 @@
 
 .headerContainer {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
   /* place-items: center; */
   margin: 0 auto;
   gap: 5rem;
 }
 
+.featuresHeader h1{
+    font-size: 2.4rem;
+}
+
+
 .headerLeft h1 {
   font-size: 3rem;
+}
+
+.pedCare{
+  color:#ff7f50;
 }
 
 .headerLeft p {
@@ -41,7 +50,7 @@
 }
 
 .btns button {
-  padding: 0.8rem 1.3rem;
+  padding: 0.6rem 1.2rem;
   background-color: #ff7f50;
   border: none;
   outline: none;
@@ -52,10 +61,10 @@
   cursor: pointer;
 }
 
-.headerRight img {
+/* .headerRight img {
   width: 600;
   height: 450;
-}
+} */
 
 .featuresHeader {
   margin: 3rem 0;
@@ -79,6 +88,57 @@
   /* display: flex;
   justify-content: space-between;
   align-items: center; */
+}
+
+/*==== CTA ======*/
+
+.cta{
+  margin: 6.5rem 0 3rem;
+}
+
+.ctaMain{
+  width: 80%;
+  margin: 0 auto;
+  background-color: #008080;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem 1.2rem;
+  border-radius: 2rem 2rem 0 0;
+  position: relative;
+}
+
+/* .ctaRight{
+} */
+
+.ctaLeft h3{
+  color: white;
+  font-size: 1.5rem;
+}
+
+.ctaBtns{
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.ctaBtn button{
+  padding: 0.6rem 1.2rem;
+  background-color: #ff7f50;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  border-radius: 0.6rem;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.ctaRight img{
+  position: absolute;
+  bottom: 0;
+  right: 3%;
+
 }
 
 /* Mobile */
@@ -117,6 +177,26 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+  }
+
+
+
+
+  .ctaMain{
+    flex-wrap: wrap;
+    
+  }
+
+  .ctaBtns{
+    flex-direction: column;
+  }
+
+  .ctaRight img{
+    /* position: absolute;
+    bottom: 0;
+    right: 3%; */
+    display: none;
+  
   }
 
   /* Tablet and Smaller Desktop */

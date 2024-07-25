@@ -3,9 +3,8 @@
   height: 4.5rem;
   display: grid;
   place-items: center;
-  background: rgba(255, 255, 255, 0.6); /* Slightly opaque background */
-  backdrop-filter: blur(7px); /* Apply blur */
-  -webkit-backdrop-filter: blur(7px); /* For Safari */
+  background: rgb(255, 255, 255); /* Slightly opaque background */
+  
   position: fixed;
   top: 0;
   left: 0;
@@ -32,7 +31,7 @@
 }
 
 .navBtn {
-  padding: 0.8rem 1.3rem;
+  padding: 0.7rem 1.2rem;
   background-color: #ff7f50;
   border: none;
   outline: none;
