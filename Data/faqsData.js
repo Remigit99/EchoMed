@@ -12,7 +12,7 @@ export const faqsData =[
     },
     {
         id:4, 
-        question: "Is mu Child's health information secure on EchoMed?",
+        question: "Is my Child's health information secure on EchoMed?",
         answer: ""
     },
     {
