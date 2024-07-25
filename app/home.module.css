@@ -66,6 +66,13 @@
   height: 450;
 } */
 
+/*==== Features =====*/
+
+.featuresMobile{
+  display: none;
+}
+
+
 .featuresHeader {
   margin: 3rem 0;
   text-align: center;
@@ -175,9 +182,18 @@
   border-radius: 0.5rem;
 }
 
-.questionHeader img{
+.questionHeader span{
+  background-color: black;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+}
+
+.questionHeader span .arrow {
   color: white;
-  transform: rotate(-90deg);
+
 }
 
 
@@ -209,6 +225,16 @@
     gap: 5rem;
   }
 
+
+  .featuresDesktop{
+    display: none;
+  }
+
+  .featuresMobile{
+    display: flex;
+    flex-direction: column;
+  }
+
   .featuresHeader {
     margin: 3rem 0 1rem;
   }
@@ -221,6 +247,7 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    gap: 0.8rem;
   }
 
 
@@ -248,6 +275,10 @@
     width: 96%;
     /* margin: 0 auto;
    */
+  }
+
+  .faqsHeader h3{
+    font-size: 1.2rem;
   }
 
   /* Tablet and Smaller Desktop */
