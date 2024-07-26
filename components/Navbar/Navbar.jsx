@@ -4,39 +4,82 @@ import styles from "./Navbar.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+
+import { FiSearch } from "react-icons/fi";
+import { IoIosNotificationsOutline } from "react-icons/io";
 
 const Navbar = () => {
-  const userLoggedIn = false;
+  // const { data: session } = useSession();
+
+  const userLoggedIn = true;
   const [toggleDropdown, setToggleDropdown] = useState(false);
   const [providers, setProviders] = useState(null);
+
+  // useEffect(() => {
+  //   (async () => {
+  //     const res = await getProviders();
+  //     setProviders(res);
+  //   })();
+  // }, []);
 
   return (
     <nav className={styles.navBar}>
       <div className={`${styles.container} ${styles.navContainer}`}>
-        <div className="navLogo">
+        <Link href="/" className="navLogo">
           <Image
             src="/assets/images/Logo Pace Holder.png"
             width={150}
             height={60}
             alt="EcoMed Logo"
           />
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
-        <div className={styles.containerRight}>
+        <div
+          className={`${styles.containerRight} ${styles.smFlex} ${styles.hidden}`}
+        >
           {userLoggedIn ? (
             <ul className={styles.navLinks}>
               <Link href="/">Home</Link>
               <Link href="/home">Features</Link>
               <Link href="/AboutUs">About Us</Link>
               <Link href="/HowItWorks">How it works</Link>
-              <button
+
+              <div className={styles.searchPro}>
+                <div className={styles.navSearch}>
+                  <input
+                    type="text"
+                    name="search"
+                    placeholder="Search"
+                    className={styles.navInput}
+                  />
+
+                  <FiSearch />
+                </div>
+                
+
+                <Image
+                  src="/assets/images/dr-green.png"
+                  width={37}
+                  height={37}
+                  className={styles.roundedFull}
+                  alt="profile"
+                  onClick={() => setToggleDropdown(!toggleDropdown)}
+                />
+
+                <IoIosNotificationsOutline 
+                className={styles.navNotify}
+                />
+              </div>
+
+              {/* <button
                 type="button"
-                //   onClick={signOut}
+                  onClick={signOut}
                 className={styles.navBtn}
               >
                 Sign Out
-              </button>
+              </button> */}
 
               {/* <Link href="/profile">
                 <Image
@@ -79,9 +122,11 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`${styles.containerRight} ${styles.mobileNav}`}>
+        <div
+          className={`${styles.containerRight} ${styles.mobileNav} ${styles.smHidden} ${styles.flex} ${styles.relative}`}
+        >
           {userLoggedIn ? (
-            <div className="flex">
+            <div className={styles.mobile}>
               <Image
                 src="/assets/images/dr-green.png"
                 width={37}
@@ -101,10 +146,18 @@ const Navbar = () => {
                     My Profile
                   </Link>
 
-                  <Link href="/">Home</Link>
-                  <Link href="/home">Features</Link>
-                  <Link href="/AboutUs">About Us</Link>
-                  <Link href="/HowItWorks">How it works</Link>
+                  <Link href="/" className={styles.dropdownLink}>
+                    Home
+                  </Link>
+                  <Link href="/home" className={styles.dropdownLink}>
+                    Features
+                  </Link>
+                  <Link href="/AboutUs" className={styles.dropdownLink}>
+                    About Us
+                  </Link>
+                  <Link href="/HowItWorks" className={styles.dropdownLink}>
+                    How it works
+                  </Link>
 
                   <button
                     type="button"
