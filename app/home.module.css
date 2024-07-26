@@ -6,7 +6,7 @@
 
 .header {
   background-color: #ffdab9;
-  padding: 8rem 0 2rem;
+  padding: 10rem 0 3.5rem;
 }
 
 .container {
@@ -24,7 +24,7 @@
   grid-template-columns: 1fr 1fr;
   /* place-items: center; */
   margin: 0 auto;
-  gap: 5rem;
+  gap: 10rem;
 }
 
 .featuresHeader h1{

@@ -12,7 +12,7 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 const Navbar = () => {
   // const { data: session } = useSession();
 
-  const userLoggedIn = true;
+  const userLoggedIn = false;
   const [toggleDropdown, setToggleDropdown] = useState(false);
   const [providers, setProviders] = useState(null);
 
@@ -28,7 +28,7 @@ const Navbar = () => {
       <div className={`${styles.container} ${styles.navContainer}`}>
         <Link href="/" className="navLogo">
           <Image
-            src="/assets/images/Logo Pace Holder.png"
+            src="/assets/images/Logo.png"
             width={150}
             height={60}
             alt="EcoMed Logo"

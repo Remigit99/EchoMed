@@ -9,7 +9,7 @@ const Footer = () => {
         <div className={footerStyles.logoSec}>
           <div className={footerStyles.footerLogo}>
             <Image
-              src="/assets/images/Logo Pace Holder.png"
+              src="/assets/images/Logo.png"
               width={150}
               height={60}
               alt="EcoMed Logo"
@@ -44,24 +44,26 @@ const Footer = () => {
           <p>08012345678</p>
           <p>Info@echomed.com</p>
         </div>
-        <div >
+        <div>
           <h4>Quick Links</h4>
 
           <div className={footerStyles.quickLinks}>
-          <Link href="/">Home</Link>
-          <Link href="/">Blogs</Link>
-          <Link href="/">About Us</Link>
-          <Link href="/">Privacy Policy</Link>
-          <Link href="/">Terms of Use</Link>
-
+            <Link href="/">Home</Link>
+            <Link href="/">Blogs</Link>
+            <Link href="/">About Us</Link>
+            <Link href="/">Privacy Policy</Link>
+            <Link href="/">Terms of Use</Link>
           </div>
         </div>
         <div className={footerStyles.subscribe}>
           <h4>Join the newsletter</h4>
           <div>
             <form className={footerStyles.footerSub}>
-              <input type="email" name="subscribe" 
-              placeholder="Enter You Email Address" />
+              <input
+                type="email"
+                name="subscribe"
+                placeholder="Enter You Email Address"
+              />
               <div className={footerStyles.footerBtn}>
                 <button>Subscribe</button>
               </div>

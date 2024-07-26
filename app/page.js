@@ -31,7 +31,7 @@ export default function Home() {
               <p>
                 Connect with Top Pediatricians from the comfort of your Home
               </p>
-              <Link href="/home">Learn More</Link>
+              {/* <Link href="/home">Learn More</Link> */}
 
               <div className={homeStyles.btns}>
                 <button>Get Started</button>
@@ -40,7 +40,7 @@ export default function Home() {
 
             <div className={homeStyles.headerRight}>
               <Image
-                src="/assets/images/headerImg.png"
+                src="/assets/images/HomeHeaderImg.png"
                 height={450}
                 width={600}
                 alt="header_Image"
@@ -85,7 +85,7 @@ export default function Home() {
             <div className={homeStyles.easyAppoint}>
               <div className={homeStyles.easyAppointLeft}>
                 <Image
-                  src="/assets/images/EasyAppoint.png"
+                  src="/assets/images/EasyAppointN.png"
                   width={400}
                   height={300}
                   alt="Easy-Appoint"
@@ -167,7 +167,7 @@ export default function Home() {
             <div className={homeStyles.easyAppoint}>
               <div className={homeStyles.easyAppointLeft}>
                 <Image
-                  src="/assets/images/EasyAppoint.png"
+                  src="/assets/images/EasyAppointN.png"
                   width={400}
                   height={300}
                   alt="Easy-Appoint"

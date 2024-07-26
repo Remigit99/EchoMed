@@ -1,0 +1,121 @@
+
+
+.signin{
+  padding: 8rem 0 2rem;
+}
+
+.signinContainer{
+  width: 40%;
+  border-radius: 2rem;
+  padding: 1.5rem 0 2rem;
+  margin: 0  auto;
+  box-shadow: 0 0 5px gray;
+}
+
+.signinHeader{
+  text-align: center;
+}
+
+.signinForm{
+  display: grid;
+  place-content: center;
+}
+
+.signinForm form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.inputGroup input{
+border: 1px solid gray;
+padding: 1.2rem;
+border-radius: 1rem;
+min-width: 350px;
+outline: none;
+}
+
+.inputGroup input:focus{
+  border: 1px solid bisque;
+}
+
+.forgetPass{
+  text-align: center;
+  margin: 1.2rem 0;
+}
+
+.forgetPass a{
+  text-decoration: underline;
+}
+
+
+.loginBtn{
+  padding: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-family: inherit;
+  background-color: #FF7F50;
+  color: white;
+font-weight: 600;
+  font-size: 1rem;
+}
+
+.toSignUp{
+  text-align: center;
+  margin: 1.2rem 0 0.5rem;
+
+}
+
+.toSignUp p a{
+  color: #FF7F50;
+  font-weight: 600;
+}
+
+
+/* Mobile */
+@media (max-width: 700px) {
+  /* Tablet and Smaller Desktop */
+
+
+  .signin{
+    padding: 8rem 0 2rem;
+  }
+  
+  .signinContainer{
+    width: 94%;
+    border-radius: 2rem;
+  }
+
+  
+  .signinForm form {
+    gap: 2rem;
+  }
+  
+  .inputGroup input{
+  min-width: 300px;
+
+  }
+  
+  
+  .loginBtn{
+    padding: 0.8rem;
+  }
+  
+  /* .toSignUp{
+    text-align: center;
+    margin: 1.2rem 0 0.5rem;
+  
+  }
+  
+  .toSignUp p a{
+    color: #FF7F50;
+    font-weight: 600;
+  } */
+
+
+
+  @media (min-width: 701px) and (max-width: 1120px) {
+  }
+}
