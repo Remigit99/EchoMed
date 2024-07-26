@@ -12,7 +12,7 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 const Navbar = () => {
   // const { data: session } = useSession();
 
-  const userLoggedIn = false;
+  const userLoggedIn = true;
   const [toggleDropdown, setToggleDropdown] = useState(false);
   const [providers, setProviders] = useState(null);
 

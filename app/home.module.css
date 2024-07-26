@@ -209,6 +209,10 @@
   }
 
   /*==== home Header ===*/
+.header {
+  background-color: #ffdab9;
+  padding: 7rem 0 3.5rem;
+}
 
   .headerImg {
     width: 96%;

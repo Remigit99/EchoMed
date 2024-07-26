@@ -74,7 +74,7 @@ export default function Home() {
               </div>
               <div className={homeStyles.medSafeChatRight}>
                 <Image
-                  src="/assets/images/MedSafeChat.png"
+                  src="/assets/images/medSafeChat.png"
                   width={400}
                   height={300}
                   alt="MedSafe Image"
@@ -145,7 +145,7 @@ export default function Home() {
             <div className={homeStyles.medSafeChat}>
               <div className={homeStyles.medSafeChatRight}>
                 <Image
-                  src="/assets/images/MedSafeChat.png"
+                  src="/assets/images/medSafeChat.png"
                   width={400}
                   height={300}
                   alt="MedSafe Image"
@@ -184,7 +184,6 @@ export default function Home() {
             </div>
 
             <div className={homeStyles.docFiles}>
-            
               <div className={homeStyles.docFilesRight}>
                 <Image
                   src="/assets/images/DocFile.png"
@@ -194,7 +193,7 @@ export default function Home() {
                 />
               </div>
 
-                <div className={homeStyles.docFilesLeft}>
+              <div className={homeStyles.docFilesLeft}>
                 <h3>DocFiles</h3>
                 <p>Secure access to your child&apos;s health record</p>
                 <div className={homeStyles.btns}>
