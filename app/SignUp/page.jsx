@@ -6,49 +6,52 @@ const page = () => {
       <div className={styles.signupContainer}>
         <div className={styles.signupHeader}>
           <h2>Sign Up</h2>
-          <p>
-            Join EchoMed and experience Pediatric care like never before
-          </p>
+          <p>Join EchoMed and experience Pediatric care like never before</p>
         </div>
 
         <div className={styles.signupForm}>
           <form>
+            {/* full Name */}
+
             <div className={styles.inputGroup}>
               <input
                 type="text"
-                name=""
-                id=""
+                name="FullName"
                 placeholder="Full Name"
                 required
               />
             </div>
+
+            {/* Email */}
+
             <div className={styles.inputGroup}>
-              <input
-                type="email"
-                name="email"
-                id=""
-                placeholder="Email"
-                required
-              />
+              <input type="email" name="email" placeholder="Email" required />
             </div>
+
+            {/* Password */}
+
             <div className={styles.inputGroup}>
               <input
                 type="password"
                 name="password"
-                id=""
                 placeholder="Password"
                 required
               />
             </div>
+
+            {/* Confirm Password */}
+
             <div className={styles.inputGroup}>
               <input
                 type="password"
                 name="confirmPassword"
-                id=""
                 placeholder="Confirm Password"
                 required
               />
             </div>
+
+            {/* Gender */}
+
             <div className={styles.inputGroup}>
               <select name="Gender" id="">
                 <option>Male</option>
@@ -56,10 +59,44 @@ const page = () => {
               </select>
             </div>
 
-            <div className={styles.inputGroup}>{/* Nationality */}</div>
+            {/* Nationality */}
 
             <div className={styles.inputGroup}>
-              <input type="text" name="Home address" id="" required />
+              <input
+                type="text"
+                name="Nationality"
+                placeholder="Nationality"
+                required
+              />
+            </div>
+
+            {/* Home Address */}
+
+            <div className={styles.inputGroup}>
+              <textarea
+                name="homeAdress"
+                placeholder="Home Address"
+                required
+              ></textarea>
+            </div>
+            {/* Language */}
+
+            <div className={styles.inputGroup}>
+              <input type="text" name="Language" placeholder="Language" />
+            </div>
+
+            {/* Phone Number */}
+            <div className={styles.inputGroup}>
+              <input
+                type="text"
+                name="PhoneNumber"
+                placeholder="Phone Number"
+              />
+            </div>
+
+            {/* Region */}
+            <div className={styles.inputGroup}>
+              <input type="text" name="Region" placeholder="Region" />
             </div>
 
             <button>Submit</button>

@@ -10,9 +10,10 @@ import { FiSearch } from "react-icons/fi";
 import { IoIosNotificationsOutline } from "react-icons/io";
 
 const Navbar = () => {
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
+  console.log(session)
 
-  const userLoggedIn = true;
+  const userLoggedIn = false;
   const [toggleDropdown, setToggleDropdown] = useState(false);
   const [providers, setProviders] = useState(null);
 

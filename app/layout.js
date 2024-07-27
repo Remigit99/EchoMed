@@ -1,6 +1,7 @@
 import { Inter, Quicksand, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
+import Provider from "@/components/Provider";
 
 
 const montserrat = Montserrat({ 
@@ -17,8 +18,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={montserrat.className}>
+        <Provider>
         <Navbar />
         {children}
+        </Provider>
         </body>
     </html>
   );

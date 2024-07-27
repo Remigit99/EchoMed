@@ -7,6 +7,9 @@ import styles from "./signin.module.css";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+
+
 
 
  const SignIn = () => {
@@ -62,6 +65,22 @@ import Link from "next/link";
               </p>
             </div>
           </form>
+        </div>
+
+        <div>
+          <button 
+          onClick={() => signIn("google")}
+          >
+            Sign In With Google
+          </button>
+        </div>
+
+          <div>
+          <button 
+          onClick={() => signOut()}
+          >
+            Sign Out
+          </button>
         </div>
       </div>
     </section>
