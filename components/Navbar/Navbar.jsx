@@ -1,28 +1,15 @@
 "use client";
-import React from "react";
 import styles from "./Navbar.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 import { FiSearch } from "react-icons/fi";
 import { IoIosNotificationsOutline } from "react-icons/io";
 
 const Navbar = () => {
-  const { data: session } = useSession();
-  console.log(session)
-
   const userLoggedIn = false;
   const [toggleDropdown, setToggleDropdown] = useState(false);
-  const [providers, setProviders] = useState(null);
-
-  // useEffect(() => {
-  //   (async () => {
-  //     const res = await getProviders();
-  //     setProviders(res);
-  //   })();
-  // }, []);
 
   return (
     <nav className={styles.navBar}>
@@ -58,7 +45,6 @@ const Navbar = () => {
 
                   <FiSearch />
                 </div>
-                
 
                 <Image
                   src="/assets/images/dr-green.png"
@@ -69,45 +55,11 @@ const Navbar = () => {
                   onClick={() => setToggleDropdown(!toggleDropdown)}
                 />
 
-                <IoIosNotificationsOutline 
-                className={styles.navNotify}
-                />
+                <IoIosNotificationsOutline className={styles.navNotify} />
               </div>
-
-              {/* <button
-                type="button"
-                  onClick={signOut}
-                className={styles.navBtn}
-              >
-                Sign Out
-              </button> */}
-
-              {/* <Link href="/profile">
-                <Image
-                  src={session?.user.image}
-                  width={37}
-                  height={37}
-                  className="rounded-full"
-                  alt="profile"
-                />
-              </Link> */}
             </ul>
           ) : (
             <>
-              {/* {providers &&
-                Object.values(providers).map((provider) => (
-                  <button
-                    type="button"
-                    key={provider.name}
-                    onClick={() => {
-                      signIn(provider.id);
-                    }}
-                    className="black_btn"
-                  >
-                    Sign in
-                  </button>
-                ))} */}
-
               <ul className={styles.navLinks}>
                 <Link href="/">Home</Link>
                 <Link href="/home">Features</Link>
@@ -175,19 +127,7 @@ const Navbar = () => {
             </div>
           ) : (
             <>
-              {providers &&
-                Object.values(providers).map((provider) => (
-                  <button
-                    type="button"
-                    key={provider.name}
-                    onClick={() => {
-                      signIn(provider.id);
-                    }}
-                    className={styles.navBtn}
-                  >
-                    Sign in
-                  </button>
-                ))}
+          
             </>
           )}
         </div>

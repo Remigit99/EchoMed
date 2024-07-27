@@ -1,5 +1,7 @@
 import styles from "./signup.module.css";
 
+import SignupForm from "@/components/SignUpForm/SignUpForm";
+
 const page = () => {
   return (
     <section className={styles.signup}>
@@ -10,97 +12,7 @@ const page = () => {
         </div>
 
         <div className={styles.signupForm}>
-          <form>
-            {/* full Name */}
-
-            <div className={styles.inputGroup}>
-              <input
-                type="text"
-                name="FullName"
-                placeholder="Full Name"
-                required
-              />
-            </div>
-
-            {/* Email */}
-
-            <div className={styles.inputGroup}>
-              <input type="email" name="email" placeholder="Email" required />
-            </div>
-
-            {/* Password */}
-
-            <div className={styles.inputGroup}>
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                required
-              />
-            </div>
-
-            {/* Confirm Password */}
-
-            <div className={styles.inputGroup}>
-              <input
-                type="password"
-                name="confirmPassword"
-                placeholder="Confirm Password"
-                required
-              />
-            </div>
-
-            {/* Gender */}
-
-            <div className={styles.inputGroup}>
-              <select name="Gender" id="">
-                <option>Male</option>
-                <option>Female</option>
-              </select>
-            </div>
-
-            {/* Nationality */}
-
-            <div className={styles.inputGroup}>
-              <input
-                type="text"
-                name="Nationality"
-                placeholder="Nationality"
-                required
-              />
-            </div>
-
-            {/* Home Address */}
-
-            <div className={styles.inputGroup}>
-              <textarea
-                name="homeAdress"
-                placeholder="Home Address"
-                required
-              ></textarea>
-            </div>
-            {/* Language */}
-
-            <div className={styles.inputGroup}>
-              <input type="text" name="Language" placeholder="Language" />
-            </div>
-
-            {/* Phone Number */}
-            <div className={styles.inputGroup}>
-              <input
-                type="text"
-                name="PhoneNumber"
-                placeholder="Phone Number"
-              />
-            </div>
-
-            {/* Region */}
-            <div className={styles.inputGroup}>
-              <input type="text" name="Region" placeholder="Region" />
-            </div>
-
-            <button>Submit</button>
-          </form>
+          <SignupForm/>
         </div>
       </div>
     </section>
@@ -108,3 +20,4 @@ const page = () => {
 };
 
 export default page;
+

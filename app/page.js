@@ -1,8 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import homeStyles from "./home.module.css";
-import PatientDoctorVideo from "./Video/PatientDoctorVideo";
-import Login from "./SignIn/page";
 
 // import { SlArrowDown } from "react-icons/sl";
 
@@ -10,7 +8,6 @@ import Navbar from "@/components/Navbar/Navbar";
 import { faqsData } from "@/Data/faqsData";
 import Link from "next/link";
 import Footer from "@/components/Footer/Footer";
-// import TestiminialSlider from "@/components/TestimonialSlider/TestiminialSlider";
 
 export default function Home() {
   return (
@@ -222,16 +219,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* <section className={styles.testimonial}>
-          <div className={styles.testimonialHeader}>
-            <h1>What People say</h1>
-
-            Testimonial Slider
-            <div className={styles.testimonialSlider}>
-              <TestiminialSlider />
-            </div>
-          </div>
-        </section>  */}
 
         <section className={homeStyles.cta}>
           <div className={homeStyles.ctaMain}>

@@ -3,7 +3,7 @@
 }
 
 .signupContainer{
-    width: 40%;
+    width: 90%;
     border-radius: 2rem;
     padding: 1.5rem 0 2rem;
     margin: 0  auto;
@@ -49,6 +49,9 @@ outline: none;
     border: 1px solid bisque;
 }
 
+.errorMsg{
+  color: red;
+}
 
 
 /* Mobile */
