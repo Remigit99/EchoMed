@@ -140,23 +140,29 @@ font-size: 1.1rem;
 @media (max-width: 700px) {
     /* Tablet and Smaller Desktop */
   
-  
-    .signup{
-      padding: 8rem 0 2rem;
-    }
-    
     .signupContainer{
       width: 94%;
-      border-radius: 2rem;
+      grid-template-columns: 1fr;
+
     }
+
+    .signup{
+      padding: 5rem 0 2rem;
+    }
+
+    .signupLeft img{
+      display: none;
+    }
+   
   
     
     .signupForm form {
       gap: 2rem;
     }
     
-    .inputGroup input{
-    min-width: 300px;
+    .inputGroup input,
+    .inputGroup select{
+    min-width: 270px;
   
     }
     
@@ -164,5 +170,26 @@ font-size: 1.1rem;
     .loginBtn{
       padding: 0.8rem;
     }
+
+
+
+
+
+}
+
+
+@media (min-width: 701px) and (max-width: 1120px) {
+    
+    
+  .signupContainer{
+    width: 94%;
+    grid-template-columns: 1fr;
+
+  }
+
+  .signupLeft img{
+    display: none;
+  }
+
 
 }

@@ -31,7 +31,7 @@ export default function Home() {
               {/* <Link href="/home">Learn More</Link> */}
 
               <div className={homeStyles.btns}>
-                <button>Get Started</button>
+                <Link href="/SignIn"  className={homeStyles.getBtn}>Get Started</Link>
               </div>
             </div>
 

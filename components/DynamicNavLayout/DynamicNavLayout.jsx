@@ -140,6 +140,82 @@ const DynamicNavLayout = ({ children }) => {
                 ) : (
                   <>
                     {/* Add mobile nav for not logged in state if needed */}
+
+                    <div className={styles.mobile}>
+                    <Image
+                      src="/assets/images/dr-green.png"
+                      width={37}
+                      height={37}
+                      className={styles.roundedFull}
+                      alt="profile"
+                      onClick={() => setToggleDropdown(!toggleDropdown)}
+                    />
+
+                    {toggleDropdown && (
+                      <div className={styles.dropdown}>
+                        {/* <Link
+                          href="/profile"
+                          className={styles.dropdownLink}
+                          onClick={() => setToggleDropdown(false)}
+                        >
+                          My Profile
+                        </Link> */}
+
+                        <Link href="/" 
+                         onClick={() => {
+                          setToggleDropdown(false);
+                          // signOut();
+                        }}
+                        className={styles.dropdownLink}>
+                          Home
+                        </Link>
+                        <Link href="/" 
+                         onClick={() => {
+                          setToggleDropdown(false);
+                          // signOut();
+                        }}
+                        className={styles.dropdownLink}>
+                          Features
+                        </Link>
+                        <Link href="/" 
+                         onClick={() => {
+                          setToggleDropdown(false);
+                          // signOut();
+                        }}
+                        className={styles.dropdownLink}>
+                          About Us
+                        </Link>
+                        <Link href="/" 
+                         onClick={() => {
+                          setToggleDropdown(false);
+                          // signOut();
+                        }}
+                        className={styles.dropdownLink}>
+                          How it works
+                        </Link>
+
+                        <Link href="/SignIn"
+                          onClick={() => {
+                            setToggleDropdown(false);
+                            // signOut();
+                          }}
+                          className={styles.navBtn}
+                        >
+                          Sign In
+                        </Link>
+
+                        <Link href="/SignUp"
+                          onClick={() => {
+                            setToggleDropdown(false);
+                            // signOut();
+                          }}
+                          className={styles.navBtn}
+                        >
+                          Sign Up
+                        </Link>
+                      </div>
+                    )}
+                  </div>
                   </>
                 )}
               </div>

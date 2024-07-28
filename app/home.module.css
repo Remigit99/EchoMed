@@ -27,17 +27,16 @@
   gap: 10rem;
 }
 
-.featuresHeader h1{
-    font-size: 2.4rem;
+.featuresHeader h1 {
+  font-size: 2.4rem;
 }
-
 
 .headerLeft h1 {
   font-size: 3rem;
 }
 
-.pedCare{
-  color:#ff7f50;
+.pedCare {
+  color: #ff7f50;
 }
 
 .headerLeft p {
@@ -49,12 +48,13 @@
   margin: 2rem 0;
 }
 
-.btns button {
+.btns button,
+.getBtn {
   padding: 0.6rem 1.2rem;
   background-color: #ff7f50;
   border: none;
   outline: none;
-  font-weight: 600;
+  font-weight: 500;
   border-radius: 0.6rem;
   color: white;
   font-size: 1rem;
@@ -68,10 +68,9 @@
 
 /*==== Features =====*/
 
-.featuresMobile{
+.featuresMobile {
   display: none;
 }
-
 
 .featuresHeader {
   margin: 3rem 0;
@@ -99,11 +98,11 @@
 
 /*==== CTA ======*/
 
-.cta{
+.cta {
   margin: 6.5rem 0 3rem;
 }
 
-.ctaMain{
+.ctaMain {
   width: 80%;
   margin: 0 auto;
   background-color: #008080;
@@ -118,54 +117,51 @@
 /* .ctaRight{
 } */
 
-.ctaLeft h3{
+.ctaLeft h3 {
   color: white;
   font-size: 1.5rem;
 }
 
-.ctaBtns{
+.ctaBtns {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
 
-.ctaBtn button{
+.ctaBtn button {
   padding: 0.6rem 1.2rem;
   background-color: #ff7f50;
   border: none;
   outline: none;
-  font-weight: 600;
+  font-weight: 500;
   border-radius: 0.6rem;
   color: white;
   font-size: 1rem;
   cursor: pointer;
 }
 
-.ctaRight img{
+.ctaRight img {
   position: absolute;
   bottom: 0;
   right: 3%;
-
 }
-
 
 /*======= FAQs ========*/
-.faqs{
- margin: 5rem 0 2rem;
+.faqs {
+  margin: 5rem 0 2rem;
 }
 
-.faqsContainer{
+.faqsContainer {
   width: 60%;
   margin: 0 auto;
-
 }
 
-.faqsHeader h2{
+.faqsHeader h2 {
   text-align: center;
   margin: 2rem 0;
 }
 
-.faqsMain{
+.faqsMain {
   display: flex;
   justify-content: center;
   /* align-items: center; */
@@ -173,7 +169,7 @@
   gap: 1.5rem;
 }
 
-.questionHeader{
+.questionHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -182,7 +178,7 @@
   border-radius: 0.5rem;
 }
 
-.questionHeader span{
+.questionHeader span {
   background-color: black;
   width: 3.5rem;
   height: 3.5rem;
@@ -193,13 +189,7 @@
 
 .questionHeader span .arrow {
   color: white;
-
 }
-
-
-
-
-
 
 /* Mobile */
 @media (max-width: 700px) {
@@ -209,10 +199,10 @@
   }
 
   /*==== home Header ===*/
-.header {
-  background-color: #ffdab9;
-  padding: 7rem 0 3.5rem;
-}
+  .header {
+    background-color: #ffdab9;
+    padding: 7rem 0 3.5rem;
+  }
 
   .headerImg {
     width: 96%;
@@ -229,12 +219,11 @@
     gap: 5rem;
   }
 
-
-  .featuresDesktop{
+  .featuresDesktop {
     display: none;
   }
 
-  .featuresMobile{
+  .featuresMobile {
     display: flex;
     flex-direction: column;
   }
@@ -254,38 +243,60 @@
     gap: 0.8rem;
   }
 
-
-
-
-  .ctaMain{
+  .ctaMain {
     flex-wrap: wrap;
-    
   }
 
-  .ctaBtns{
+  .ctaBtns {
     flex-direction: column;
   }
 
-  .ctaRight img{
+  .ctaRight img {
     /* position: absolute;
     bottom: 0;
     right: 3%; */
     display: none;
-  
   }
 
-
-  .faqsContainer{
+  .faqsContainer {
     width: 96%;
     /* margin: 0 auto;
    */
   }
 
-  .faqsHeader h3{
+  .faqsHeader h3 {
     font-size: 1.2rem;
   }
+}
 
-  /* Tablet and Smaller Desktop */
-  @media (min-width: 701px) and (max-width: 1120px) {
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) {
+  .header {
+    padding: 6rem 0 1.5rem;
+  }
+
+  .headerContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .featuresContainer {
+    width: 90%;
+  }
+
+  .medSafeChat,
+  .easyAppoint,
+  .docFiles,
+  .prescriber {
+    gap: 4rem;
+  }
+
+
+  .ctaLeft h3 {
+    color: white;
+    font-size: 1.1rem;
+    width: 60%;
   }
 }

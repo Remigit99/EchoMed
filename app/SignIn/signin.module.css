@@ -119,6 +119,14 @@ font-weight: 500;
 
 
 
-  @media (min-width: 701px) and (max-width: 1120px) {
+  
+}
+
+
+@media (min-width: 701px) and (max-width: 1120px) {
+
+  .signinContainer{
+    width: 80%;
+    border-radius: 2rem;
   }
 }
