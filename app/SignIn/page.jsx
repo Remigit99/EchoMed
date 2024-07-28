@@ -1,16 +1,7 @@
 "use client";
-import Image from "next/image";
 import styles from "./signin.module.css";
-// import "react-phone-number-input/style.css";
-// import PhoneInput from "react-phone-number-input";
-// import flags from "react-phone-number-input/flags";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-
-import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-
-
-
 
  const SignIn = () => {
    
@@ -67,21 +58,6 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react";
           </form>
         </div>
 
-        <div>
-          <button 
-          onClick={() => signIn("google")}
-          >
-            Sign In With Google
-          </button>
-        </div>
-
-          <div>
-          <button 
-          onClick={() => signOut()}
-          >
-            Sign Out
-          </button>
-        </div>
       </div>
     </section>
       )

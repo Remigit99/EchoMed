@@ -4,7 +4,7 @@ import homeStyles from "./home.module.css";
 
 // import { SlArrowDown } from "react-icons/sl";
 
-import Navbar from "@/components/Navbar/Navbar";
+// import Navbar from "@/components/Navbar/Navbar";
 import { faqsData } from "@/Data/faqsData";
 import Link from "next/link";
 import Footer from "@/components/Footer/Footer";
@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className={`${styles.container} ${styles.main}`}>
       <div>
-        <Navbar />
+        {/* <Navbar /> */}
 
         <header className={homeStyles.header}>
           <div

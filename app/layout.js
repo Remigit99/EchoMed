@@ -1,13 +1,13 @@
-import { Inter, Quicksand, Montserrat } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar/Navbar";
-import Provider from "@/components/Provider";
+// import Navbar from "@/components/Navbar/Navbar";
+// import Provider from "@/components/Provider";
+import DynamicNavLayout from "@/components/DynamicNavLayout/DynamicNavLayout";
 
-
-const montserrat = Montserrat({ 
-subsets: ["latin"],
-weight: ["100","200", "300", "400", "500", "600", "700", "800", "900"]
- });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata = {
   title: "EchoMed App",
@@ -17,12 +17,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>
-        <Provider>
-        <Navbar />
-        {children}
-        </Provider>
-        </body>
+      <body className={poppins.className}>
+        <DynamicNavLayout>
+          {/* <Navbar /> */}
+          {children}
+        </DynamicNavLayout>
+      </body>
     </html>
   );
 }
