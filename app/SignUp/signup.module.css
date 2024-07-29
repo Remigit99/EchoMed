@@ -131,6 +131,65 @@ font-size: 1.1rem;
 }
 
 
+/*===== To Be Modified ========*/
+
+.radioGroup {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.radioButton {
+  display: flex;
+  align-items: center;
+}
+
+.radioButton input {
+  margin-right: 0.5rem;
+}
+
+.orSeparator {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0;
+  color: #888;
+  font-size: 0.875rem;
+}
+
+.orSeparator::before,
+.orSeparator::after {
+    content: '';
+    height: 5px;
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+}
+
+.orSeparator::before {
+    margin-right: 0.5rem;
+}
+
+.orSeparator::after {
+    margin-left: 0.5rem;
+}
+
+.socialLogin {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.socialLogin a {
+    margin: 0 0.5rem;
+}
+
+.socialLogin img {
+    width: 32px;
+    height: 32px;
+}
+/*===== To Be Modified ========*/
+
+
 .errorMsg{
   color: red;
 }
