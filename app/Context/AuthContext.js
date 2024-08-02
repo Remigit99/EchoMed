@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const verifyEmail = async () => {
-    await client.account.createVerification("YOUR_VERIFICATION_URL");
+    await client.account.createVerification("https://echo-med-7up1.vercel.app/VerifyEmail");
   };
 
   return (
