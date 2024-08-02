@@ -1,66 +1,71 @@
-"use client";
-import styles from "./signin.module.css";
-import { useState, useEffect } from "react";
-import Link from "next/link";
+"use client"
+import { useState } from "react"
+import { z } from "zod"
+import { useAuth } from "../Context/AuthContext"
+import { useRouter } from "next/navigation"
 
- const SignIn = () => {
-   
-    
-      const [data, setData] = useState({});
-    
-      const handleInput =  (e) => {
-        let newInput = {[e.target.name] : e.target.value}
-        setData({...data, ...newInput})
+
+const signInSchema = z.object({
+    email: z.string().email('Invalid email address'),
+    password: z.string().min(6, 'Password must be at least 6 characters'),
+  });
+
+
+const SignIn = () => {
+
+    const { login } = useAuth();
+    const router = useRouter();
+    const [formData, setFormData] = useState({ email: '', password: '' });
+    const [errors, setErrors] = useState({});
+  
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
       };
- 
-   
     
-      return (
-        <section className={styles.signin}>
-      <div className={styles.signinContainer}>
-        <div className={styles.signinHeader}>
-          <h2>Login</h2>
-        </div>
+  
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        const result = signInSchema.safeParse(formData);
+        if (!result.success) {
+          const newErrors = {};
+          result.error.errors.forEach((err) => {
+            newErrors[err.path[0]] = err.message;
+          });
+          setErrors(newErrors);
+          return;
+        }
+        try {
+          await login(formData.email, formData.password);
+          router.push('/');
+        } catch (error) {
+          console.error(error);
+        }
+      };
 
-        <div className={styles.signinForm}>
-          <form>
-            
-            <div className={styles.inputGroup}>
-              <input
-                type="email"
-                name="email"
-                id=""
-                placeholder="Email"
-                required
-              />
-            </div>
-            <div className={styles.inputGroup}>
-              <input
-                type="password"
-                name="password"
-                id=""
-                placeholder="Password"
-                required
-              />
-            </div>
 
-            <div className={styles.forgetPass}>
-              <Link href="/">Forget Password?</Link>
-            </div>
-      
-            <button className={styles.loginBtn}>Login</button>
+  return (
 
-            <div className={styles.toSignUp}>
-              <p>
-                Don&apos;t have an account? <Link href="/SignUp">Sign Up</Link> 
-              </p>
-            </div>
-          </form>
-        </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        name="email"
+        type="email"
+        placeholder="Email"
+        value={formData.email}
+        onChange={handleChange}
+      />
+      {errors.email && <span>{errors.email}</span>}
+      <input
+        name="password"
+        type="password"
+        placeholder="Password"
+        value={formData.password}
+        onChange={handleChange}
+      />
+      {errors.password && <span>{errors.password}</span>}
+      <button type="submit">Sign In</button>
+    </form>
 
-      </div>
-    </section>
-      )
-    }
-    
-    export default SignIn;
+  )  
+}
+
+export default SignIn
