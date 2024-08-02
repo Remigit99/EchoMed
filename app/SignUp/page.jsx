@@ -5,6 +5,7 @@ import { z } from 'zod'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import style from "./signup.module.css"
 
 
 const signUpSchema = z.object({
@@ -171,4 +172,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default SignUp;
