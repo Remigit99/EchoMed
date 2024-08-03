@@ -36,10 +36,13 @@ export default function Home() {
             </div>
 
             <div className={homeStyles.headerRight}>
+
               <Image
                 src="/assets/images/HomeHeaderImg.png"
-                height={450}
-                width={600}
+                // height={460}
+                // width={600}
+                height={453}
+                width={650}
                 alt="header_Image"
                 className={homeStyles.headerImg}
               />
@@ -55,8 +58,8 @@ export default function Home() {
                   <div className={homeStyles.featuresIcon}>
                     <Image
                     src="/assets/icons/seamless.png"
-                    width={30}
-                    height={30}
+                    width={60}
+                    height={60}
                     alt="icon"
                     />
                   </div>
@@ -70,12 +73,12 @@ export default function Home() {
                   <div className={homeStyles.featuresIcon}>
                     <Image
                     src="/assets/icons/security.png"
-                    width={30}
-                    height={30}
+                    width={60}
+                    height={60}
                     alt="icon"
                     />
                   </div>
-                  <div className={homeStyles.servicesInfoHeader}><h5>Data Security</h5></div>
+                  <h5 className={homeStyles.servicesInfoHeader}>Data Security</h5>
                   <div>
                   <p>Rest assured with our commitment to maintaining the highest standards of data security</p>
                   </div> 
@@ -85,12 +88,12 @@ export default function Home() {
                   <div className={homeStyles.featuresIcon}>
                     <Image
                     src="/assets/icons/qualify.png"
-                    width={30}
-                    height={30}
+                    width={60}
+                    height={60}
                     alt="icon"
                     />
                   </div>
-                  <div className={homeStyles.servicesInfoHeader}><h5>Qualified Pediatricians</h5></div>
+                  <h5 className={homeStyles.servicesInfoHeader}>Qualified Pediatricians</h5>
                   <div>
                   <p>Access to a network of highly qualified pediatricians</p>
                   </div> 
@@ -100,12 +103,12 @@ export default function Home() {
                   <div className={homeStyles.featuresIcon}>
                     <Image
                     src="/assets/icons/convenience.png"
-                    width={30}
-                    height={30}
+                    width={60}
+                    height={60}
                     alt="icon"
                     />
                   </div>
-                  <div className={homeStyles.servicesInfoHeader}><h5>Convenience</h5></div>
+                  <h5 className={homeStyles.servicesInfoHeader}>Convenience</h5>
                   <div>
                   <p>Receive fast Pediatric care from the comfort of your home</p>
                   </div> 
@@ -115,12 +118,12 @@ export default function Home() {
                   <div className={homeStyles.featuresIcon}>
                     <Image
                     src="/assets/icons/reduced.png"
-                    width={30}
-                    height={30}
+                    width={60}
+                    height={60}
                     alt="icon"
                     />
                   </div>
-                  <div className={homeStyles.servicesInfoHeader}><h5>Reduced Wait Times</h5></div>
+                  <h5 className={homeStyles.servicesInfoHeader}>Reduced Wait Times</h5>
                   <div>
                   <p>Minimize long wait times and get prompt medical attention for your child</p>
                   </div> 
@@ -130,12 +133,12 @@ export default function Home() {
                   <div className={homeStyles.featuresIcon}>
                     <Image
                     src="/assets/icons/affordability.png"
-                    width={30}
-                    height={30}
+                    width={60}
+                    height={60}
                     alt="icon"
                     />
                   </div>
-                  <div className={homeStyles.servicesInfoHeader}><h5>Affordability and Accessibility</h5></div>
+                  <h5 className={homeStyles.servicesInfoHeader}>Affordability and Accessibility</h5>
                   <div>
                   <p>Enjoy affordable and easily accessible healthcare services for your child</p>
                   </div> 
@@ -155,7 +158,38 @@ export default function Home() {
           <div
             className={`${homeStyles.features} ${homeStyles.featuresDesktop}`}
           >
+
+            <div className={homeStyles.easyAppoint}>
+              
+              <div className={homeStyles.easyAppointRight}>
+                <h3>Easy Appoint</h3>
+                <p>Book, Reschedule and Manage Appointments Effortlessly</p>
+
+                <div className={homeStyles.btns}>
+                  <button>Order Now</button>
+                </div>
+              </div>
+
+              <div className={homeStyles.easyAppointLeft}>
+                <Image
+                  src="/assets/images/EasyAppointN.png"
+                  width={680}
+                  height={424}
+                  alt="Easy-Appoint"
+                />
+              </div>
+            </div>
+
             <div className={homeStyles.medSafeChat}>
+
+            <div className={homeStyles.medSafeChatRight}>
+                <Image
+                  src="/assets/images/medSafeChat.png"
+                  width={680}
+                  height={424}
+                  alt="MedSafe Image"
+                />
+              </div>
               <div className={homeStyles.medSafeChatLeft}>
                 <h3>MedSafe-Chat</h3>
                 <p>
@@ -166,33 +200,7 @@ export default function Home() {
                   <button>Schedule Now</button>
                 </div>
               </div>
-              <div className={homeStyles.medSafeChatRight}>
-                <Image
-                  src="/assets/images/medSafeChat.png"
-                  width={400}
-                  height={300}
-                  alt="MedSafe Image"
-                />
-              </div>
-            </div>
-
-            <div className={homeStyles.easyAppoint}>
-              <div className={homeStyles.easyAppointLeft}>
-                <Image
-                  src="/assets/images/EasyAppointN.png"
-                  width={400}
-                  height={300}
-                  alt="Easy-Appoint"
-                />
-              </div>
-              <div className={homeStyles.easyAppointRight}>
-                <h3>Easy Appoint</h3>
-                <p>Book, Reschedule and Manage Appointments Effortlessly</p>
-
-                <div className={homeStyles.btns}>
-                  <button>Order Now</button>
-                </div>
-              </div>
+              
             </div>
 
             <div className={homeStyles.docFiles}>
@@ -206,8 +214,8 @@ export default function Home() {
               <div className={homeStyles.docFilesRight}>
                 <Image
                   src="/assets/images/DocFile.png"
-                  width={400}
-                  height={300}
+                  width={680}
+                  height={424}
                   alt="DocFiles"
                 />
               </div>
@@ -217,8 +225,8 @@ export default function Home() {
               <div className={homeStyles.prescriberLeft}>
                 <Image
                   src="/assets/images/Prescriber.png"
-                  width={400}
-                  height={300}
+                  width={680}
+                  height={424}
                   alt="Prescriber-Pro"
                 />
               </div>
@@ -240,7 +248,7 @@ export default function Home() {
               <div className={homeStyles.medSafeChatRight}>
                 <Image
                   src="/assets/images/medSafeChat.png"
-                  width={400}
+                  width={680}
                   height={300}
                   alt="MedSafe Image"
                 />

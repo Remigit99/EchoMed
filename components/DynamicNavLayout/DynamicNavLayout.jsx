@@ -143,7 +143,7 @@ const DynamicNavLayout = ({ children }) => {
 
                     <div className={styles.mobile}>
                     <Image
-                      src="/assets/images/dr-green.png"
+                      src="/assets/icons/navMenu.png"
                       width={37}
                       height={37}
                       className={styles.roundedFull}
