@@ -19,11 +19,11 @@ const signUpSchema = z.object({
 const SignUp = () => {
 
     const { signUp, verifyEmail } = useAuth();
-    const router = useRouter();
+    const router = useRouter();q
     const [formData, setFormData] = useState({ name: '', email: '', password: '' });
     const [errors, setErrors] = useState({});
+    const [isLoading, setIsLoading] = useState(false)
   
-    const handleChange = (e) => {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     };
     
