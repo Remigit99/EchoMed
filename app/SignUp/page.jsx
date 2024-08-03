@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import style from "./signup.module.css";
+import Spinner from "@/components/Spinner/Spinner";
 
 const signUpSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -24,10 +25,9 @@ const SignUp = () => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (e) =>{
-  setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  }
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,12 +41,15 @@ const SignUp = () => {
       setErrors(newErrors);
       return;
     }
+
+    setIsLoading(true);
     try {
       await signUp(formData.email, formData.password, formData.name);
       await verifyEmail();
       router.push("/VerifyEmail");
     } catch (error) {
       console.error(error);
+      setIsLoading(false);
     }
   };
 
@@ -111,23 +114,18 @@ const SignUp = () => {
                 )}
               </div>
 
-              <button type="submit" className={style.signupBtn}>
-                {isLoading ? (
-                  <Image
-                    src="/assets/icons/loader.svg"
-                    alt="loader"
-                    width={24}
-                    height={24}
-                  />
-                ) : (
-                  <p>Sign Up</p>
-                )}
+              <button
+                type="submit"
+                disabled={isLoading}
+                className={style.signupBtn}
+              >
+                {isLoading ? <Spinner /> : <p>Sign Up</p>}
               </button>
             </form>
 
             <div className={style.orSeparator}>OR</div>
             <div className={style.socialLogin}>
-              <Link href="/auth/facebook">
+              <Link href="/">
                 <Image
                   width={30}
                   height={30}
@@ -135,7 +133,7 @@ const SignUp = () => {
                   alt="Facebook"
                 />
               </Link>
-              <Link href="/auth/twitter">
+              <Link href="/">
                 <Image
                   width={30}
                   height={30}
@@ -143,7 +141,7 @@ const SignUp = () => {
                   alt="Twitter"
                 />
               </Link>
-              <Link href="/auth/instagram">
+              <Link href="/">
                 <Image
                   width={30}
                   height={30}

@@ -12,8 +12,8 @@ import Footer from "@/components/Footer/Footer";
 export default function Home() {
   return (
     <main className={`${styles.container} ${styles.main}`}>
-      <div>
-        {/* <Navbar /> */}
+    
+      
 
         <header className={homeStyles.header}>
           <div
@@ -47,11 +47,108 @@ export default function Home() {
           </div>
         </header>
 
+        <section className={homeStyles.services}>
+          <div className={homeStyles.servicesContainer}>
+              <div className={homeStyles.servicesHeader}> <h2>Why Choose Our Platform?</h2></div>
+              <div className={homeStyles.servicesMain}>
+                <article>
+                  <div className={homeStyles.featuresIcon}>
+                    <Image
+                    src="/assets/icons/seamless.png"
+                    width={30}
+                    height={30}
+                    alt="icon"
+                    />
+                  </div>
+                  <h5 className={homeStyles.servicesInfoHeader}>Seamless Remote Healthcare</h5>
+                  <div>
+                  <p>Experience smooth an efficient remote healthcare services</p>
+                  </div> 
+                </article>
+            
+                <article>
+                  <div className={homeStyles.featuresIcon}>
+                    <Image
+                    src="/assets/icons/security.png"
+                    width={30}
+                    height={30}
+                    alt="icon"
+                    />
+                  </div>
+                  <div className={homeStyles.servicesInfoHeader}><h5>Data Security</h5></div>
+                  <div>
+                  <p>Rest assured with our commitment to maintaining the highest standards of data security</p>
+                  </div> 
+                </article>
+             
+                <article>
+                  <div className={homeStyles.featuresIcon}>
+                    <Image
+                    src="/assets/icons/qualify.png"
+                    width={30}
+                    height={30}
+                    alt="icon"
+                    />
+                  </div>
+                  <div className={homeStyles.servicesInfoHeader}><h5>Qualified Pediatricians</h5></div>
+                  <div>
+                  <p>Access to a network of highly qualified pediatricians</p>
+                  </div> 
+                </article>
+           
+                <article>
+                  <div className={homeStyles.featuresIcon}>
+                    <Image
+                    src="/assets/icons/convenience.png"
+                    width={30}
+                    height={30}
+                    alt="icon"
+                    />
+                  </div>
+                  <div className={homeStyles.servicesInfoHeader}><h5>Convenience</h5></div>
+                  <div>
+                  <p>Receive fast Pediatric care from the comfort of your home</p>
+                  </div> 
+                </article>
+
+                <article>
+                  <div className={homeStyles.featuresIcon}>
+                    <Image
+                    src="/assets/icons/reduced.png"
+                    width={30}
+                    height={30}
+                    alt="icon"
+                    />
+                  </div>
+                  <div className={homeStyles.servicesInfoHeader}><h5>Reduced Wait Times</h5></div>
+                  <div>
+                  <p>Minimize long wait times and get prompt medical attention for your child</p>
+                  </div> 
+                </article>
+
+                <article>
+                  <div className={homeStyles.featuresIcon}>
+                    <Image
+                    src="/assets/icons/affordability.png"
+                    width={30}
+                    height={30}
+                    alt="icon"
+                    />
+                  </div>
+                  <div className={homeStyles.servicesInfoHeader}><h5>Affordability and Accessibility</h5></div>
+                  <div>
+                  <p>Enjoy affordable and easily accessible healthcare services for your child</p>
+                  </div> 
+                </article>
+              </div>
+              </div>
+        </section>
+
         <section
           className={`${homeStyles.featuresContainer} ${homeStyles.mainFeatures}`}
         >
           <div className={homeStyles.featuresHeader}>
-            <h1>Why Choose Our Platform? </h1>
+            <h1>Our Services</h1>    
           </div>
 
           {/* Desktop Features */}
@@ -271,7 +368,7 @@ export default function Home() {
         <>
           <Footer />
         </>
-      </div>
+      
     </main>
   );
 }

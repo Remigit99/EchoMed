@@ -17,6 +17,8 @@
 .featuresContainer {
   width: 80%;
   margin: 0 auto;
+  background-color: #FFFFF0;
+
 }
 
 .headerContainer {
@@ -65,6 +67,56 @@
   width: 600;
   height: 450;
 } */
+
+/*==== Services =====*/
+
+.services{
+  padding: 5rem 0;
+  background-color: #FFFFF0;
+}
+
+.servicesContainer{
+  margin: 0 auto;
+  width: 80%;
+}
+
+.servicesHeader{
+  text-align: center;
+  margin: 1rem 0 5rem;
+
+}
+
+.servicesHeader h2{
+  font-size: 2rem;
+}
+
+.servicesMain{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 6.5rem;
+  column-gap: 3.5rem;
+  place-content: center;
+  /* align-items: center; */
+}
+
+
+.servicesMain article{
+  text-align: center;
+
+}
+
+.servicesInfoHeader {
+   font-size: 1.1rem;
+   font-weight: 600;
+}
+
+.servicesMain p{
+  width: 80%;
+  font-size: 0.95rem;
+  margin: 0 auto;
+}
+
+
 
 /*==== Features =====*/
 
@@ -218,6 +270,52 @@
     grid-template-columns: 1fr;
     gap: 5rem;
   }
+
+/*==== Services =====*/
+
+.services{
+  padding: 3rem 0;
+}
+
+.servicesContainer{
+  width: 96%;
+}
+
+.servicesHeader{
+  margin: 1rem 0 3rem;
+
+}
+
+.servicesHeader h2{
+  font-size: 1.5rem;
+}
+
+.servicesMain{
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 2rem;
+  column-gap: 1rem;
+  place-content: center;
+  /* align-items: center; */
+}
+
+
+.servicesMain article{
+  text-align: center;
+
+}
+
+.servicesInfoHeader h5{
+   font-size: 0.8rem;
+   font-weight: 500;
+}
+
+.servicesMain p{
+  width: 90%;
+  margin: 0 auto;
+}
+
+
 
   .featuresDesktop {
     display: none;
