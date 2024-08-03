@@ -24,10 +24,13 @@ const SignUp = () => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
+  const handleChange = (e) =>{
+  setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const result = signUpSchema.safeParse(formData);
     if (!result.success) {
