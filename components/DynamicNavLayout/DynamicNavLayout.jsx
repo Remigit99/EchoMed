@@ -29,8 +29,8 @@ const DynamicNavLayout = ({ children }) => {
           <Link href="/" className="navLogo">
             <Image
               src="/assets/images/Logo.png"
-              width={130}
-              height={45}
+              width={170}
+              height={70}
               alt="EcoMed Logo"
             />
           </Link>

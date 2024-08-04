@@ -1,9 +1,6 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
-// import { UserProvider } from "./Context/AuthContext";
-import { AuthProvider } from "./Context/AuthContext";
-
 import DynamicNavLayout from "@/components/DynamicNavLayout/DynamicNavLayout";
 
 const poppins = Poppins({
@@ -20,12 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <AuthProvider>
-          <DynamicNavLayout>
-            {/* <Navbar /> */}
-            {children}
-          </DynamicNavLayout>
-        </AuthProvider>
+        <DynamicNavLayout>{children}</DynamicNavLayout>
       </body>
     </html>
   );
