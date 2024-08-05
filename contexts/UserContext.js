@@ -13,6 +13,7 @@ export const UserProvider = ({ children }) => {
       setUser(user);
     });
 
+    
     return () => unsubscribe();
   }, []);
 
