@@ -9,7 +9,7 @@ import { z } from "zod";
 // import LoginForm from "@/components/LoginForm";
 import Link from "next/link";
 import Image from "next/image";
-
+import Spinner from "@/components/Spinner/Spinner";
 import style from "@/styles/signin.module.css"
 
 
@@ -22,6 +22,7 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const[isLoading, setIsLoading] =  useState(false)
   const { setUser } = useUser();
   const router = useRouter();
 
@@ -29,6 +30,7 @@ const SignIn = () => {
     e.preventDefault();
     setErrors({});
     try {
+      setIsLoading(true)
       const result = signInSchema.parse({ email, password });
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       setUser(userCredential.user);
@@ -43,10 +45,11 @@ const SignIn = () => {
       } else {
         console.error("Error signing in:", error);
       }
+    }finally{
+      setIsLoading(false)
     }
   };
 
-  {/* <LoginForm/> */ }
 
   return (
 
@@ -74,7 +77,12 @@ const SignIn = () => {
           required
         />
         {errors.password && <span>{errors.password}</span>}
-        <button type="submit" className={style.signInBtn}>Sign In</button>
+        <button type="submit" className={style.signInBtn}>
+        {
+          isLoading ? <Spinner/> :<p>SignUp</p>
+        }
+    
+        </button>
       </form>
 
       <div className={style.orSeparator}>OR</div>

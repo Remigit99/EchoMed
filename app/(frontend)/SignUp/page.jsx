@@ -98,7 +98,7 @@ const SignUp = () => {
 
       <button type="submit" className={style.signupBtn}>
         {
-          isLoading ? <p>loading...</p> :<p>SignUp</p>
+          isLoading ? <Spinner/> :<p>SignUp</p>
         }
       </button>
     </form>
