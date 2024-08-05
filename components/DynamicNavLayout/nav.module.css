@@ -8,6 +8,8 @@
     left: 0;
     width: 100vw;
     z-index: 100;
+    /* border:1px solid grey;  */
+    box-shadow: 0 0 5px grey;
   }
 
   /* --bg-1: #FFDAB9;

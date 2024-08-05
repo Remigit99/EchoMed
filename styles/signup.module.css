@@ -1,0 +1,205 @@
+.signUp{
+    padding: 6rem 0;
+}
+
+.signUpContainer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    margin: 0 auto;
+    width: 90%;
+    place-content: center;
+}
+
+.signUpLeft img{
+    border-radius: 1.5rem;
+}
+
+.signUpRight{
+    box-shadow: 0 0 3px 2px rgb(212, 212, 212);
+    border-radius: 2rem;
+    padding: 1.5rem 3rem;
+}
+
+.signUpHeader{
+    text-align: center;
+    margin: 1rem 0 3rem;
+}
+
+.signUpHeader p{
+    color: gray;
+    font-size: 0.85rem;
+}
+
+.signUpRight form{
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.signUpRight form input{
+border: 1px solid #ccc ;
+border-radius: 0.5rem;
+outline: none;
+padding: 1rem 1.2rem;
+font-family: inherit;
+background-color: transparent;
+}
+
+.signUpRight form input::placeholder{
+    font-family: inherit;
+    font-size: 1.05rem;
+}
+.signUpRight form input:focus{
+    border: 1px solid #ccc;
+}
+
+.signupBtn {
+    padding: 0.8rem 1.2rem;
+    background-color: #ff7f50;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    margin: 1rem 0;
+    transition: 300m ease-in all;
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+  
+  .signupBtn:hover {
+    opacity: 0.8;
+  }
+  
+  .toSiginIn {
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+  }
+  .toSiginIn p {
+    font-size: 0.85rem;
+  }
+  .toSiginIn p a {
+    color: #ff7f50;
+    font-weight: 600;
+  }
+  
+  /*===== To Be Modified ========*/
+  
+  .inputGroup {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .inputGroup input,
+  .inputGroup select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .inputGroup p {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+  
+  .orSeparator {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 1rem 0;
+    color: #888;
+    font-size: 0.875rem;
+  }
+  
+  .orSeparator::before,
+  .orSeparator::after {
+    content: "";
+    height: 5px;
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .orSeparator::before {
+    margin-right: 0.5rem;
+  }
+  
+  .orSeparator::after {
+    margin-left: 0.5rem;
+  }
+  
+  .socialLogin {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .socialLogin a {
+    margin: 0 0.5rem;
+  }
+  
+  .socialLogin img {
+    width: 32px;
+    height: 32px;
+  }
+  /*===== To Be Modified ========*/
+  
+  .errorMsg {
+    color: red;
+  }
+  
+  /* Mobile */
+  @media (max-width: 700px) {
+    /* Tablet and Smaller Desktop */
+  
+    .signUpContainer {
+      width: 90%;
+      grid-template-columns: 1fr;
+    }
+  
+   
+  
+    .signUpLeft img {
+      display: none;
+    }
+  
+    .signUpForm form {
+      gap: 2rem;
+    }
+  
+    .inputGroup input,
+    .inputGroup select {
+      min-width: 270px;
+    }
+  
+    .loginBtn {
+      padding: 0.8rem;
+    }
+
+    .signUpRight{
+        padding: 1rem 1.2rem;
+    }
+    
+  }
+  
+  @media (min-width: 701px) and (max-width: 1120px) {
+    .signUpContainer {
+      width: 60%;
+   
+    }
+
+    .signUpRight{
+        padding: 1rem 1.2rem;
+    }
+    
+  
+    .signUpLeft img {
+      display: none;
+    }
+  }
+  
+
