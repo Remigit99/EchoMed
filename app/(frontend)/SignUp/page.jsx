@@ -9,7 +9,7 @@ import style from "@/styles/signup.module.css"
 import { auth } from "@/Configs/firebaseConfig";
 import Image from "next/image";
 import Link from "next/link";
-import Spinner from "@/components/Spinner/Spinner";
+// import Spinner from "@/components/Spinner/Spinner";
 
 
 
@@ -96,9 +96,9 @@ const SignUp = () => {
       />
       {errors.password && <span>{errors.password}</span>}
 
-      <button type="submit" className={style.signupBtn}>
+      <button type="submit"  disabled={isLoading} className={style.signupBtn}>
         {
-          isLoading ? <Spinner/> :<p>SignUp</p>
+          isLoading ? <p>Loading...</p> :<p>SignUp</p>
         }
       </button>
     </form>

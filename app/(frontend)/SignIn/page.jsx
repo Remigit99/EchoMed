@@ -9,7 +9,7 @@ import { z } from "zod";
 // import LoginForm from "@/components/LoginForm";
 import Link from "next/link";
 import Image from "next/image";
-import Spinner from "@/components/Spinner/Spinner";
+// import Spinner from "@/components/Spinner/Spinner";
 import style from "@/styles/signin.module.css"
 
 
@@ -77,9 +77,9 @@ const SignIn = () => {
           required
         />
         {errors.password && <span>{errors.password}</span>}
-        <button type="submit" className={style.signInBtn}>
+        <button type="submit" disabled={isLoading} className={style.signInBtn}>
         {
-          isLoading ? <Spinner/> :<p>SignUp</p>
+          isLoading ? <p>Loading...</p> :<p>SignUp</p>
         }
     
         </button>
