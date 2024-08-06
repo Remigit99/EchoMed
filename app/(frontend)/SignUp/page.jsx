@@ -36,7 +36,14 @@ const SignUp = () => {
           setIsLoading(true)
           const result = signUpSchema.parse({ email, password });
           const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-          await sendEmailVerification(userCredential.user);
+          const actionCodeSettings = {
+            url: 'https://echomed.netlify.app/ConfirmEmail?mode=verifyEmail',
+            handleCodeInApp: true,
+          };
+    
+          await sendEmailVerification(userCredential.user, actionCodeSettings);
+    
+
           router.push("/VerifyEmail");
         } catch (error) {
           if (error instanceof z.ZodError) {

@@ -1,5 +1,8 @@
 "use client"
 
+import style from "@/styles/verifyemail.module.css"
+
+
 const VerifyEmail = ()=>{
 
     const handleMailbox = () => {
@@ -7,9 +10,12 @@ const VerifyEmail = ()=>{
       }
       
     return(
-        <div>
-        <h1>Verify your email</h1>
-        <button onClick={handleMailbox}>Go to Mailbox</button>
+        <div className={style.verifyEmail}>
+          <div className={style.verifyEmailContainer}>
+          <h1>Verify your email</h1>
+          <button onClick={handleMailbox}>Go to Mailbox</button>
+          </div>
+        
       </div>
     )
 }
