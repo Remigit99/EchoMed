@@ -37,7 +37,7 @@ const SignUp = () => {
           const result = signUpSchema.parse({ email, password });
           const userCredential = await createUserWithEmailAndPassword(auth, email, password);
           const actionCodeSettings = {
-            url: 'https://echomed.netlify.app/ConfirmEmail?mode=verifyEmail',
+            url: 'https://echomed.netlify.app/ConfirmEmail',
             handleCodeInApp: true,
           };
     
@@ -54,6 +54,7 @@ const SignUp = () => {
             setErrors(fieldErrors);
           } else {
             console.error("Error signing up:", error);
+            // alert(error)
           }
         }finally{
           setIsLoading(false)

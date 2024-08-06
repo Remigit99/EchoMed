@@ -1,0 +1,45 @@
+.confirmEmail{
+    padding: 10rem 0;
+ }
+ 
+ .confirmEmailContainer{
+ margin: 0 auto;
+ width: 50%;
+ display: grid;
+ place-content: center;
+ box-shadow: 0 0 5px 2px gainsboro;
+ height: 50vh;
+ border-radius: 2rem;
+ }
+ 
+ .confirmEmailContainer button{
+     padding: 0.8rem 1.2rem;
+     background-color: #ff7f50;
+     border-radius: 0.25rem;
+     cursor: pointer;
+     margin: 1rem 0;
+     transition: 300m ease-in all;
+     border: none;
+     outline: none;
+     color: white;
+     font-weight: 500;
+     font-size: 1.1rem;
+ }
+
+
+ /* Mobile */
+@media (max-width: 700px) {
+
+    .confirmEmailContainer{
+        width: 84%;
+     
+    
+        }
+
+}
+
+  /* Tablet and Smaller Desktop */
+
+  @media (min-width: 701px) and (max-width: 1120px) {
+  }
+

@@ -6,38 +6,35 @@ import { auth } from '../lib/firebase';
 
 const ConfirmEmail = () => {
   const router = useRouter();
-  const { mode, oobCode } = router.query;
+  // const { mode, oobCode } = router.query;
   const [message, setMessage] = useState('Verifying your email...');
 
   useEffect(() => {
+    const { mode, oobCode } = router.query;
     if (mode === 'verifyEmail' && oobCode) {
-      // Verify the email
       checkActionCode(auth, oobCode)
-        .then(() => {
-          return applyActionCode(auth, oobCode);
-        })
-        .then(() => {
-          setMessage('Email verified successfully! You can now sign in.');
-        })
-        .catch((error) => {
-          setMessage(`Error verifying email: ${error.message}`);
-        });
+        .then(() => applyActionCode(auth, oobCode))
+        .then(() => setMessage('Email verified successfully! You can now sign in.'))
+        .catch((error) => setMessage(`Error verifying email: ${error.message}`));
     } else {
       setMessage('Invalid or expired action code.');
     }
-  }, [mode, oobCode]);
+  }, [router.query]);
 
   const handleSignInRedirect = () => {
     router.push('/signIn');
   };
 
   return (
-    <div>
+    <div className={style.ConfirmEmail}>
+      <div className={style.ConfirmEmailContainer}>
       <h1>Email Verification</h1>
       <p>{message}</p>
       {message === 'Email verified successfully! You can now sign in.' && (
         <button onClick={handleSignInRedirect}>Go to Sign In</button>
       )}
+      </div>
+      
     </div>
   );
 };
