@@ -116,6 +116,7 @@ const SignIn = () => {
         <p>
           Already have an account? <Link href="/SignIn">Sign In</Link>
         </p>
+        
         <p>
           By signing up, you agree to our Terms of Service and Privacy
           Policy
