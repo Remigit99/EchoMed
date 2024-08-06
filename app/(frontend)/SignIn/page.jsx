@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { auth } from "@/Configs/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
-// import { useRouter } from "next/router";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/contexts/UserContext";
 import { z } from "zod";
@@ -79,7 +78,7 @@ const SignIn = () => {
         {errors.password && <span>{errors.password}</span>}
         <button type="submit" disabled={isLoading} className={style.signInBtn}>
         {
-          isLoading ? <p>Loading...</p> :<p>SignUp</p>
+          isLoading ? <p>Loading...</p> :<p>Login</p>
         }
     
         </button>
