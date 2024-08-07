@@ -2,15 +2,17 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { applyActionCode, checkActionCode } from 'firebase/auth';
-import { auth } from '../lib/firebase';
+// import { auth } from '../lib/firebase';
+import { auth } from '@/Configs/firebaseConfig';
 
 const ConfirmEmail = () => {
   const router = useRouter();
-  // const { mode, oobCode } = router.query;
+  const { mode, oobCode } = router.query;
   const [message, setMessage] = useState('Verifying your email...');
 
   useEffect(() => {
-    const { mode, oobCode } = router.query;
+    console.log('Query parameters:', router.query);
+    // const { mode, oobCode } = router.query;
     if (mode === 'verifyEmail' && oobCode) {
       checkActionCode(auth, oobCode)
         .then(() => applyActionCode(auth, oobCode))
@@ -19,7 +21,7 @@ const ConfirmEmail = () => {
     } else {
       setMessage('Invalid or expired action code.');
     }
-  }, [router.query]);
+  }, [mode, oobCode, router.query]);
 
   const handleSignInRedirect = () => {
     router.push('/signIn');
