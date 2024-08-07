@@ -1,7 +1,9 @@
+"use client"
 import Image from "next/image";
 import styles from "./page.module.css";
 import homeStyles from "./home.module.css";
 import Faqs from "@/components/Faqs/Faqs";
+import { useUser } from "@/contexts/UserContext";
 
 // import { SlArrowDown } from "react-icons/sl";
 
@@ -11,12 +13,15 @@ import Link from "next/link";
 import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
+
+  const {user} = useUser()
   return (
     <main className={`${styles.container} ${styles.main}`}>
       <header className={homeStyles.header}>
         <div
           className={`${homeStyles.container} ${homeStyles.headerContainer}`}
         >
+          {user? `Welocme ${user.email}`: ""}
           <div className={homeStyles.headerLeft}>
             <h1>
               Experience
