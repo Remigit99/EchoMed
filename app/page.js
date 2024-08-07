@@ -367,17 +367,6 @@ export default function Home() {
           </div>
           <div className={homeStyles.faqsMain}>
             <Faqs />
-
-            {/* {faqsData.map(({ id, question, answer }) => (
-                <div key={id}>
-                  <div className={homeStyles.questionHeader}>
-                    <h3>{question}</h3>
-                    <span>
-                      <SlArrowDown />
-                    </span>
-                  </div>
-                </div>
-              ))} */}
           </div>
         </div>
       </section>

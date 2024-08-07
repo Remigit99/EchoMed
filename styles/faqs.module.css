@@ -1,0 +1,24 @@
+.faqsMain{
+   background-color: #eeeeee;
+}
+
+
+.faqsHeaderBtn{
+    width: 100%;
+    background-color: #ff7f50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0.5rem;
+    border: none;
+    outline: none;
+margin-bottom: 0.5rem;
+}
+
+.faqsQ h3{
+    color: white;
+}
+
+.faqsA{
+padding: 0 0.5rem 0.5rem;
+}
