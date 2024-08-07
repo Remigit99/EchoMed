@@ -305,6 +305,7 @@
   .featuresMobile {
     display: flex;
     flex-direction: column;
+    
   }
 
   .featuresHeader {
