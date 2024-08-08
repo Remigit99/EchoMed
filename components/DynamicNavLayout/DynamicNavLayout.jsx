@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from "./nav.module.css";
 import Image from "next/image";
 import { useState } from "react";
+import { useUser } from "@/contexts/UserContext";
 
 import { FiSearch } from "react-icons/fi";
 import { IoIosNotificationsOutline } from "react-icons/io";
@@ -11,11 +12,15 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 const DynamicNavLayout = ({ children }) => {
   const pathname = usePathname();
 
+  let {user} = useUser()
+
   // State for dropdown menu toggle
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   // State to track if user is logged in
-  const [userLoggedIn, setUserLoggedIn] = useState(false); // Update this logic as per your authentication status
+  const [userLoggedIn, setUserLoggedIn] = useState(false); 
+  user = userLoggedIn
+
 
   // Pages where the nav links should not be shown
   const hideNavLinksOn = ["/SignIn", "/SignUp"];
@@ -28,8 +33,8 @@ const DynamicNavLayout = ({ children }) => {
         <div className={`${styles.container} ${styles.navContainer}`}>
           <Link href="/" className="navLogo">
             <Image
-              src="/assets/images/Logo.png"
-              width={170}
+              src="/assets/images/Logo_new2.png"
+              width={180}
               height={70}
               alt="EcoMed Logo"
             />
@@ -59,9 +64,9 @@ const DynamicNavLayout = ({ children }) => {
                       </div>
 
                       <Image
-                        src="/assets/images/dr-green.png"
+                        src="/assets/images/user.png"
                         width={37}
-                        height={37}
+                        height={30}
                         className={styles.roundedFull}
                         alt="profile"
                         onClick={() => setToggleDropdown(!toggleDropdown)}
@@ -93,9 +98,9 @@ const DynamicNavLayout = ({ children }) => {
                 {userLoggedIn ? (
                   <div className={styles.mobile}>
                     <Image
-                      src="/assets/images/dr-green.png"
+                      src="/assets/images/user.png"
                       width={37}
-                      height={37}
+                      height={30}
                       className={styles.roundedFull}
                       alt="profile"
                       onClick={() => setToggleDropdown(!toggleDropdown)}
@@ -111,9 +116,6 @@ const DynamicNavLayout = ({ children }) => {
                           My Profile
                         </Link>
 
-                        <Link href="/" className={styles.dropdownLink}>
-                          Home
-                        </Link>
                         <Link href="/" className={styles.dropdownLink}>
                           Features
                         </Link>
@@ -161,14 +163,14 @@ const DynamicNavLayout = ({ children }) => {
                           My Profile
                         </Link> */}
 
-                        <Link href="/" 
+                        {/* <Link href="/" 
                          onClick={() => {
                           setToggleDropdown(false);
                           // signOut();
                         }}
                         className={styles.dropdownLink}>
                           Home
-                        </Link>
+                        </Link> */}
                         <Link href="/" 
                          onClick={() => {
                           setToggleDropdown(false);

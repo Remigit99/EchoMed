@@ -6,19 +6,22 @@ const Footer = () => {
   return (
     <footer className={footerStyles.footer}>
       <div className={footerStyles.footerContainer}>
+
         <div className={footerStyles.logoSec}>
           <div className={footerStyles.footerLogo}>
+          <Link href="/" className={footerStyles.footerLogo}>
             <Image
-              src="/assets/images/Logo.png"
-              width={150}
-              height={60}
+              src="/assets/images/Logo_new2.png"
+              width={180}
+              height={70}
               alt="EcoMed Logo"
             />
+          </Link>
           </div>
 
           <div className={footerStyles.socials}>
             <Image
-              src="/assets/images/facebook.png"
+              src="/assets/images/new_facebook.png"
               width={60}
               height={60}
               alt="facebook_logo"
@@ -36,8 +39,9 @@ const Footer = () => {
               alt="instagram_logo"
             />
           </div>
-          <p> &copy; 2024 EchoMed Inc.</p>
+          <div><p> &copy; 2024 EchoMed Inc.</p></div>
         </div>
+
         <div className={footerStyles.contactSec}>
           <h4>Contact Us</h4>
           <p> High Way Road Coventry, Lagos Nigeria </p>

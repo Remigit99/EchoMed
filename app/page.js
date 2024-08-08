@@ -21,7 +21,7 @@ export default function Home() {
         <div
           className={`${homeStyles.container} ${homeStyles.headerContainer}`}
         >
-          {user? `Welocme ${user.email}`: ""}
+          {/* {user? `Welocme ${user.email}`: ""} */}
           <div className={homeStyles.headerLeft}>
             <h1>
               Experience
@@ -263,7 +263,7 @@ export default function Home() {
               <Image
                 src="/assets/images/EasyAppointN.png"
                 width={400}
-                height={330}
+                height={300}
                 alt="Easy-Appoint"
               />
             </div>

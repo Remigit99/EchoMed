@@ -69,11 +69,24 @@
     gap: 2rem;
   }
 
-  .contactSec,
-  .logSec {
+  .contactSec {
     text-align: center;
   }
 
+ 
+  .logoSec{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+
+  .footerLogo{
+    text-align: center;
+  }
+
+  .footerLogo img{
+    margin-left: 3.5rem;
+  }
   
 }
 
