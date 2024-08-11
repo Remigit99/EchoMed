@@ -17,21 +17,24 @@ const QA = (props) => {
           <h3>{props.question}</h3>
         </div>
         <div className={style.faqsArrow}>
-          {showQA ? (
-            <Image
-              src="/assets/icons/arrow-circle-up.svg"
-              alt="arrow-up"
-              width={30}
-              height={30}
-            />
-          ) : (
-            <Image
-              src="/assets/icons/arrow-circle-down.svg"
-              alt="arrow-down"
-              width={30}
-              height={30}
-            />
-          )}
+          {showQA ? 
+          (
+  <Image
+  src="/assets/icons/upBtn.png"
+    alt="arrow-up"
+    width={30}
+    height={30}
+  />
+) : (
+  <Image
+    src="/assets/icons/DropDownBtn.png"
+    alt="arrow-down"
+    width={30}
+    height={30}
+  />
+)
+          
+          }
         </div>
       </button>
       {showQA && <p className={style.faqsA}>{props.answer}</p>}
@@ -40,3 +43,6 @@ const QA = (props) => {
 };
 
 export default QA;
+
+
+

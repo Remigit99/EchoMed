@@ -7,7 +7,7 @@ import style from "@/styles/faqs.module.css"
 const Faqs = () => {
 
   return (
-    <div>
+    <div className={style.faqs}>
         
         {faqsData.map((data, i) =>
                 <div className={style.faqsMain} key={i}>
@@ -17,7 +17,7 @@ const Faqs = () => {
                     />
                 </div>
             )}
-        </div>
+    </div>
   );
 };
 

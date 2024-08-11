@@ -1,33 +1,24 @@
-// "use client"
+"use client"
 
-// import style from "@/styles/verifyemail.module.css"
-
-
-// const VerifyEmail = ()=>{
-
-//     const handleMailbox = () => {
-//         window.location.href = "https://mail.google.com/";
-//       }
-      
-//     return(
-//         <div className={style.verifyEmail}>
-//           <div className={style.verifyEmailContainer}>
-//           <h1>Verify your email</h1>
-//           <button onClick={handleMailbox}>Go to Mailbox</button>
-//           </div>
-        
-//       </div>
-//     )
-// }
-
-// export default VerifyEmail
-import React from 'react'
+import { useRouter } from "next/navigation";
 
 const VerifyEmail = () => {
+  const router = useRouter();
+
+  const handleGoToMail = () => {
+    window.location.href = "https://mail.google.com"; // Or the relevant mail service
+  };
+
   return (
-    <div>VerifyEmail</div>
-  )
-}
+    <div>
+      <h1>Verify Your Email</h1>
+      <p>
+        We’ve sent a verification link to your email. Please check your mailbox
+        to verify your account.
+      </p>
+      <button onClick={handleGoToMail}>Go to Mail</button>
+    </div>
+  );
+};
 
-export default VerifyEmail
-
+export default VerifyEmail;

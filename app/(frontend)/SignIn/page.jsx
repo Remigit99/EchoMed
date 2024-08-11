@@ -1,9 +1,13 @@
 "use client";
 import { useState } from "react";
-import { auth } from "@/Configs/firebaseConfig";
+import { auth, firestore, storage } from "@/Configs/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/contexts/UserContext";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { getDoc, doc } from "firebase/firestore";
+
 import { z } from "zod";
 // import LoginForm from "@/components/LoginForm";
 import Link from "next/link";
@@ -12,53 +16,49 @@ import Image from "next/image";
 import style from "@/styles/signin.module.css";
 
 const signInSchema = z.object({
-  email: z.string().email({ message: "Invalid email address" }),
-  password: z
-    .string()
-    .min(6, { message: "Password must be at least 6 characters" }),
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(8, "Password must be at least 8 characters long"),
 });
 
 const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({});
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(signInSchema),
+  });
   const [isLoading, setIsLoading] = useState(false);
   const { setUser } = useUser();
   const router = useRouter();
 
-  const handleSignIn = async (e) => {
-    e.preventDefault();
-    setErrors({});
+  const onSubmit = async (data) => {
     try {
-      setIsLoading(true);
-      const result = signInSchema.parse({ email, password });
+      setIsLoading(true)
       const userCredential = await signInWithEmailAndPassword(
         auth,
-        email,
-        password
+        data.email,
+        data.password
       );
       const user = userCredential.user;
-      setUser(user);
-      console.log(user);
-      if (user.emailVerified) {
-        console.log(user);
-        router.push("/");
-      } else {
+
+      if (!user.emailVerified) {
         alert("Please verify your email before signing in.");
+        return;
+      }
+
+      // Fetch additional user data from Firestore
+      const userDoc = await getDoc(doc(firestore, "users", user.uid));
+      if (userDoc.exists()) {
+        setUser(userDoc.data());
+        router.push(`/Profile/${user.uid}`);
+      } else {
+        alert("User data not found.");
       }
     } catch (error) {
-      if (error instanceof z.ZodError) {
-        const fieldErrors = error.errors.reduce((acc, err) => {
-          acc[err.path[0]] = err.message;
-          return acc;
-        }, {});
-        setErrors(fieldErrors);
-      } else {
-        console.error("Error signing in:", error);
-        alert(error.message);
-      }
-    } finally {
-      setIsLoading(false);
+      alert("Invalid email or password.");
+    }finally{
+      setIsLoading(false)
     }
   };
 
@@ -69,23 +69,17 @@ const SignIn = () => {
           <h2>Login</h2>
         </div>
 
-        <form onSubmit={handleSignIn} className={style.formMain}>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            required
-          />
-          {errors.email && <span>{errors.email}</span>}
+        <form onSubmit={handleSubmit(onSubmit)} className={style.formMain}>
+          <input type="email" placeholder="Email" {...register("email")} />
+          {errors.email && <span>{errors.email.message}</span>}
+
           <input
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
-            required
+            {...register("password")}
           />
-          {errors.password && <span>{errors.password}</span>}
+          {errors.password && <span>{errors.password.message}</span>}
+
           <button
             type="submit"
             disabled={isLoading}
@@ -134,6 +128,78 @@ const SignIn = () => {
         </div>
       </div>
     </section>
+
+    // <section className={style.signIn}>
+    //   <div className={style.signInContainer}>
+    //     <div className={style.signInHeader}>
+    //       <h2>Login</h2>
+    //     </div>
+
+    //     <form onSubmit={handleSignIn} className={style.formMain}>
+    //       <input
+    //         type="email"
+    //         value={email}
+    //         onChange={(e) => setEmail(e.target.value)}
+    //         placeholder="Email"
+    //         required
+    //       />
+    //       {errors.email && <span>{errors.email}</span>}
+    //       <input
+    //         type="password"
+    //         value={password}
+    //         onChange={(e) => setPassword(e.target.value)}
+    //         placeholder="Password"
+    //         required
+    //       />
+    //       {errors.password && <span>{errors.password}</span>}
+    //       <button
+    //         type="submit"
+    //         disabled={isLoading}
+    //         className={style.signInBtn}
+    //       >
+    //         {isLoading ? <p>Loading...</p> : <p>Login</p>}
+    //       </button>
+    //     </form>
+
+    //     <div className={style.orSeparator}>OR</div>
+    //     <div className={style.socialLogin}>
+    //       <Link href="/">
+    //         <Image
+    //           width={30}
+    //           height={30}
+    //           src="/assets/images/new_facebook.png"
+    //           alt="Facebook"
+    //         />
+    //       </Link>
+    //       <Link href="/">
+    //         <Image
+    //           width={30}
+    //           height={30}
+    //           src="/assets/images/x.png"
+    //           alt="Twitter"
+    //         />
+    //       </Link>
+    //       <Link href="/">
+    //         <Image
+    //           width={30}
+    //           height={30}
+    //           src="/assets/images/instagram.jfif"
+    //           alt="Instagram"
+    //         />
+    //       </Link>
+    //     </div>
+
+    //     <div className={style.toSiginIn}>
+    //       <p>
+    //         Already have an account? <Link href="/SignIn">Sign In</Link>
+    //       </p>
+
+    //       <p>
+    //         By signing up, you agree to our Terms of Service and Privacy Policy
+    //       </p>
+    //     </div>
+    //   </div>
+    // </section>
   );
 };
 

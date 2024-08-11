@@ -1,6 +1,4 @@
-.faqsMain{
-   background-color: #eeeeee;
-}
+
 
 
 .faqsHeaderBtn{
@@ -19,6 +17,8 @@ margin-bottom: 0.5rem;
     color: white;
 }
 
+
 .faqsA{
-padding: 0 0.5rem 0.5rem;
+padding: 0.5rem;
+background-color: #FFFFF0;
 }

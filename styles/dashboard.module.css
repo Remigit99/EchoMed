@@ -1,0 +1,137 @@
+/* Container and General Styling */
+.dashboardContainer {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .dashboardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .dashboardGreeting h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .dashboardGreeting p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .bookSessionBtn {
+    background-color: #ff5722;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .categories {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .categoryItem {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+  .appointments, .availableDoctors, .infoCards {
+    margin-top: 40px;
+  }
+  
+  .appointmentItem, .doctorCard, .infoCard {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .appointmentItem h3, .doctorCard h3, .infoCard h3 {
+    margin-bottom: 10px;
+  }
+  
+  .doctorCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .doctorCard button {
+    background-color: #ff5722;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .dashboardHeader {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .categories {
+      flex-direction: column;
+    }
+  
+    .categoryItem {
+      margin: 10px 0;
+    }
+  
+    .doctorCard {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .doctorCard button {
+      margin-top: 10px;
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .dashboardContainer {
+      padding: 10px;
+    }
+  
+    .dashboardGreeting h1 {
+      font-size: 20px;
+    }
+  
+    .dashboardGreeting p {
+      font-size: 14px;
+    }
+  
+    .bookSessionBtn {
+      padding: 8px 16px;
+    }
+  
+    .categories, .appointments, .availableDoctors, .infoCards {
+      margin-top: 20px;
+    }
+  
+    .categoryItem {
+      padding: 10px;
+      margin: 5px 0;
+    }
+  
+    .appointmentItem, .doctorCard, .infoCard {
+      padding: 15px;
+    }
+  
+    .doctorCard button {
+      padding: 8px 16px;
+    }
+  }
+  
