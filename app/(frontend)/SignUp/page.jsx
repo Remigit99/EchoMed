@@ -10,11 +10,18 @@ import {
   sendEmailVerification,
 } from "firebase/auth";
 
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, updateDoc } from "firebase/firestore";
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
 
 // import RegisterForm from "@/components/RegisterForm";
 import style from "@/styles/signup.module.css";
-import { auth, firestore, storage } from "@/Configs/firebaseConfig";
+import { auth, db, storage } from "@/Configs/firebaseConfig";
 import Image from "next/image";
 import Link from "next/link";
 // import Spinner from "@/components/Spinner/Spinner";
@@ -31,17 +38,15 @@ const signUpSchema = z.object({
     ),
   role: z.enum(["parent", "pediatrician"], "Role is required"),
   gender: z.enum(["male", "female"], "Gender is required"),
-  profileImage: z
-    .any()
-    // .refine(
-    //   (file) => file?.size <= 5 * 1024 * 1024,
-    //   "Profile image must be less than 5MB"
-    // )
-    // .refine(
-    //   (file) => ["image/jpeg", "image/jpg", "image/png"].includes(file?.type),
-    //   "Only JPEG, JPG, and PNG formats are allowed"
-    // )
-    .optional(),
+  profileImage: z.object({
+    profileImage: z.instanceof(File).optional().refine((file) => {
+      const allowedFormats = ['image/jpeg', 'image/jpg', 'image/png'];
+      return allowedFormats.includes(file.type) && file.size <= 2 * 1024 * 1024;
+    }, {
+      message: 'Image must be a JPEG, JPG, or PNG file and less than 2MB',
+    }),
+  })
+    
 });
 
 const SignUp = () => {
@@ -72,34 +77,56 @@ const SignUp = () => {
 
       // Send a verification email
       await sendEmailVerification(user);
-      router.push("/VerifyEmail");
 
-      // Handle profile image upload if provided
+      // Store essential user data immediately
+      const userDocRef = doc(db, "users", user.uid);
+      await setDoc(userDocRef, {
+        email: user.email,
+        uid: user.uid,
+        createdAt: new Date(),
+      });
+
+      // Store non-essential data asynchronously
+
       let profileImageUrl = "";
       if (data.profileImage) {
         const storageRef = ref(storage, `profileImages/${user.uid}`);
-        const uploadResult = await uploadBytes(storageRef, data.profileImage);
-        profileImageUrl = await getDownloadURL(uploadResult.ref);
+
+        const uploadTask = uploadBytesResumable(storageRef, data.profileImage, {
+          contentType: data.profileImage.type,
+        });
+  
+        const snapshot = await uploadTask;
+
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        profileImageUrl = downloadURL;
+
       }
 
-      // Store additional user data in Firestore
-      await setDoc(doc(firestore, "users", user.uid), {
-        uid: user.uid,
-        fullName: data.fullName,
-        email: data.email,
-        role: data.role,
-        gender: data.gender,
-        profileImage: data.profileImage || null,
-        emailVerified: false,
-      });
+      const storeAdditionalData = async () => {
+        await setDoc(
+          userDocRef,
+          {
+            fullName: data.fullName,
+            gender: data.gender,
+            // Handle image upload using Firebase Storage
+            profileImage: profileImageUrl || null, // Assuming image is uploaded and URL obtained
+            role: data.role,
+          },
+          { merge: true }
+        );
+      };
+      storeAdditionalData();
 
       // Update user context
       setUser({ ...data, uid: user.uid, profileImage: profileImageUrl });
       console.log(data);
+
+      router.push("/VerifyEmail");
     } catch (err) {
       setError("Failed to sign up. Please try again.");
-    }finally{
-      setIsLoading(false)
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -125,63 +152,63 @@ const SignUp = () => {
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
+            <div className={style.inputGroup}>
               <input
                 type="text"
                 placeholder="Full Name"
                 {...register("fullName")}
               />
               {errors.fullName && (
-                <p style={{ color: "red" }}>{errors.fullName.message}</p>
+                <p className={style.errMsg}>{errors.fullName.message}</p>
               )}
             </div>
-            <div>
+            <div className={style.inputGroup}>
               <input type="email" placeholder="Email" {...register("email")} />
               {errors.email && (
-                <p style={{ color: "red" }}>{errors.email.message}</p>
+                <p className={style.errMsg}>{errors.email.message}</p>
               )}
             </div>
-            <div>
+            <div className={style.inputGroup}>
               <input
                 type="password"
                 placeholder="Password"
                 {...register("password")}
               />
               {errors.password && (
-                <p style={{ color: "red" }}>{errors.password.message}</p>
+                <p className={style.errMsg}>{errors.password.message}</p>
               )}
             </div>
-            <div>
+            <div className={style.inputGroup}>
               <select {...register("role")}>
                 <option value="">Select Role</option>
-                <option value="parent">Parent</option>
+                <option value="parent">Parent/Guardian</option>
                 {/* <option value="guardian">Guardian</option> */}
                 <option value="pediatrician">Pediatrician</option>
               </select>
               {errors.role && (
-                <p style={{ color: "red" }}>{errors.role.message}</p>
+                <p className={style.errMsg}>{errors.role.message}</p>
               )}
             </div>
 
-            <div>
+            <div className={style.inputGroup}>
               <select {...register("gender")}>
                 <option value="">Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
               {errors.gender && (
-                <p style={{ color: "red" }}>{errors.gender.message}</p>
+                <p className={style.errMsg}>{errors.gender.message}</p>
               )}
             </div>
 
-            <div>
+            <div className={style.inputGroup}>
               <label>Profile Image</label>
               <input type="file" {...register("profileImage")} />
               {errors.profileImage && (
-                <p style={{ color: "red" }}>{errors.profileImage.message}</p>
+                <p className={style.errMsg}>{errors.profileImage.message}</p>
               )}
             </div>
-            {/* <button type="submit">Sign Up</button> */}
+
             <button
               type="submit"
               disabled={isLoading}

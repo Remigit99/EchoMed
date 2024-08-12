@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/contexts/UserContext";
 import Image from "next/image";
+import ProtectedRoute from "@/components/ProtectedRoutes/ProtectedRoutes";
 
 const Profile = () => {
   const { user } = useUser();
@@ -11,20 +12,31 @@ const Profile = () => {
 
   useEffect(() => {
     if (!user) {
-      router.push("/SignIn"); // Redirect to sign-in if not logged in
+      router.push("/SignIn");  
     }
   }, [user, router]);
 
   if (!user) {
-    return null; // Render nothing while redirecting
+    return null; 
   }
 
   return (
-    <div style={{ textAlign: "center" }}>
-      {user.profileImage && (
+    <ProtectedRoute>
+    <div style={{ textAlign: "center", paddingTop: "100px" }}>
+      {user.profileImage ? (
         <Image
           src={user.profileImage}
           alt="Profile"
+          width={70}
+          height={70}
+          style={{ borderRadius: "50%", width: "150px", height: "150px" }}
+        />
+      ) : (
+      <Image
+          src="/assets/icons/user.svg"
+          alt="Alt_Profile"
+          width={70}
+          height={70}
           style={{ borderRadius: "50%", width: "150px", height: "150px" }}
         />
       )}
@@ -33,7 +45,9 @@ const Profile = () => {
       <p>Role: {user.role}</p>
       <p>Gender: {user.gender}</p>
     </div>
+    </ProtectedRoute>
   );
 };
 
 export default Profile;
+

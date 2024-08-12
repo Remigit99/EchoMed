@@ -118,7 +118,7 @@
 }
 
 .featuresHeader {
-  margin: 3rem 0;
+  margin: 1rem 0 3rem;
   text-align: center;
 }
 
@@ -133,7 +133,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
-  padding: 96px 10px 96px 10px;
+  padding: 72px 10px 72px 10px;
   gap: 64px;
 
 }

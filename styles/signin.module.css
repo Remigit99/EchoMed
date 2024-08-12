@@ -92,6 +92,11 @@ background-color: transparent;
     font-size: 0.875rem;
     margin-top: 0.25rem;
   }
+
+  .errMsg{
+    color: red;
+    font-size: 0.75rem;
+  }
   
   .orSeparator {
     display: flex;

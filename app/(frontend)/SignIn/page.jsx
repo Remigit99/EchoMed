@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { auth, firestore, storage } from "@/Configs/firebaseConfig";
+import { auth, db, storage } from "@/Configs/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/contexts/UserContext";
@@ -48,7 +48,7 @@ const SignIn = () => {
       }
 
       // Fetch additional user data from Firestore
-      const userDoc = await getDoc(doc(firestore, "users", user.uid));
+      const userDoc = await getDoc(doc(db, "users", user.uid));
       if (userDoc.exists()) {
         setUser(userDoc.data());
         router.push(`/Profile/${user.uid}`);
@@ -71,21 +71,21 @@ const SignIn = () => {
 
         <form onSubmit={handleSubmit(onSubmit)} className={style.formMain}>
           <input type="email" placeholder="Email" {...register("email")} />
-          {errors.email && <span>{errors.email.message}</span>}
+          {errors.email && <span className={style.errMsg}>{errors.email.message}</span>}
 
           <input
             type="password"
             placeholder="Password"
             {...register("password")}
           />
-          {errors.password && <span>{errors.password.message}</span>}
+          {errors.password && <span className={style.errMsg}>{errors.password.message}</span>}
 
           <button
             type="submit"
             disabled={isLoading}
             className={style.signInBtn}
           >
-            {isLoading ? <p>Loading...</p> : <p>Login</p>}
+            {isLoading ? "Loading..." : "Login"}
           </button>
         </form>
 

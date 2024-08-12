@@ -1,5 +1,6 @@
 "use client"
 
+import ProtectedRoute from "@/components/ProtectedRoutes/ProtectedRoutes";
 // import { useUser } from '../lib/UserContext';
 import { useUser } from "@/contexts/UserContext";
 import style from "@/styles/dashboard.module.css"
@@ -8,6 +9,7 @@ const Dashboard = () => {
   const { user } = useUser();
 
   return (
+    <ProtectedRoute>
     <div className={style.dashboardContainer}>
       <header className={style.dashboardHeader}>
         <div className={style.dashboardGreeting}>
@@ -65,7 +67,9 @@ const Dashboard = () => {
         <div className={style.infoCard}>Education</div>
       </section>
     </div>
+    </ProtectedRoute>
   );
 };
 
-export default Dashboard;
+export default ProtectedRoute(Dashboard);
+
