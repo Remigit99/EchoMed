@@ -38,15 +38,22 @@ const signUpSchema = z.object({
     ),
   role: z.enum(["parent", "pediatrician"], "Role is required"),
   gender: z.enum(["male", "female"], "Gender is required"),
-  profileImage: z.object({
-    profileImage: z.instanceof(File).optional().refine((file) => {
-      const allowedFormats = ['image/jpeg', 'image/jpg', 'image/png'];
-      return allowedFormats.includes(file.type) && file.size <= 2 * 1024 * 1024;
-    }, {
-      message: 'Image must be a JPEG, JPG, or PNG file and less than 2MB',
-    }),
-  })
-    
+  profileImage: z
+    .any()
+    .optional()
+    // .refine((file) => {
+    //   if (!file) return true; 
+
+    //   const validTypes = ["image/jpeg", "image/jpg", "image/png"];
+    //   const maxSizeInBytes = 2 * 1024 * 1024;
+
+    //   return file instanceof File && validTypes.includes(file.type) && file.size <= maxSizeInBytes;
+    // }, {
+    //   message: "Profile image must be a jpeg, jpg, or png file and less than 2MB",
+    // }),
+
+
+  
 });
 
 const SignUp = () => {
@@ -95,12 +102,11 @@ const SignUp = () => {
         const uploadTask = uploadBytesResumable(storageRef, data.profileImage, {
           contentType: data.profileImage.type,
         });
-  
+
         const snapshot = await uploadTask;
 
         const downloadURL = await getDownloadURL(snapshot.ref);
         profileImageUrl = downloadURL;
-
       }
 
       const storeAdditionalData = async () => {
@@ -203,7 +209,7 @@ const SignUp = () => {
 
             <div className={style.inputGroup}>
               <label>Profile Image</label>
-              <input type="file" {...register("profileImage")} />
+              <input type="file" accept=".jpeg, .jpg, .png" {...register("profileImage")} />
               {errors.profileImage && (
                 <p className={style.errMsg}>{errors.profileImage.message}</p>
               )}

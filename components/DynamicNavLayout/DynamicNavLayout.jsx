@@ -23,7 +23,9 @@ const DynamicNavLayout = ({ children }) => {
 
 
   // Pages where the nav links should not be shown
-  const hideNavLinksOn = ["/SignIn", "/SignUp"];
+  const hideNavLinksOn = ["/SignIn", "/SignUp", `/Profile/${user.id}`];
+
+  
 
   const showNavLinks = !hideNavLinksOn.includes(pathname);
 
@@ -109,7 +111,7 @@ const DynamicNavLayout = ({ children }) => {
                     {toggleDropdown && (
                       <div className={styles.dropdown}>
                         <Link
-                          href="/profile"
+                          href="/Profile"
                           className={styles.dropdownLink}
                           onClick={() => setToggleDropdown(false)}
                         >

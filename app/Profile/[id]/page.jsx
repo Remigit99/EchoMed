@@ -4,10 +4,11 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/contexts/UserContext";
 import Image from "next/image";
+import style from "@/styles/profile.module.css"  
 import ProtectedRoute from "@/components/ProtectedRoutes/ProtectedRoutes";
 
 const Profile = () => {
-  const { user } = useUser();
+  const { user, logout } = useUser();
   const router = useRouter();
 
   useEffect(() => {
@@ -19,6 +20,11 @@ const Profile = () => {
   if (!user) {
     return null; 
   }
+
+  const handleLogout = async () => {
+    await logout();
+    router.push('/SignIn');
+  };
 
   return (
     <ProtectedRoute>
@@ -44,6 +50,8 @@ const Profile = () => {
       <p>Email: {user.email}</p>
       <p>Role: {user.role}</p>
       <p>Gender: {user.gender}</p>
+
+      <button onClick={handleLogout} className={style.logoutBtn}>Log Out</button>
     </div>
     </ProtectedRoute>
   );

@@ -13,6 +13,9 @@ const poppins = Poppins({
 export const metadata = {
   title: "EchoMed App",
   description: "EchoMed is a next Generation Telemedicine App",
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({ children }) {
