@@ -12,11 +12,16 @@ import { faqsData } from "@/Data/faqsData";
 import Link from "next/link";
 import Footer from "@/components/Footer/Footer";
 
+import CookieBot from "react-cookiebot"
+
 export default function Home() {
+
+  const domainGroupId = "dd2d1ab7-c6db-4871-8b05-670c7f5696ef"
 
   const {user} = useUser()
   return (
     <main className={`${styles.container} ${styles.main}`}>
+      <CookieBot domainGroupId={domainGroupId} />
       <header className={homeStyles.header}>
         <div
           className={`${homeStyles.container} ${homeStyles.headerContainer}`}

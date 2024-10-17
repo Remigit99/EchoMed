@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+    "@stream-io/video-react-sdk": "^1.6.1",
     "@zegocloud/zego-uikit-prebuilt": "^2.6.0",
     "appwrite": "^15.0.0",
     "bcryptjs": "^2.4.3",
@@ -20,6 +21,7 @@
     "next-auth": "^4.24.7",
     "node-appwrite": "^13.0.0",
     "react": "^18",
+    "react-cookiebot": "^1.0.10",
     "react-dom": "^18",
     "react-faq-component": "^1.3.4",
     "react-hook-form": "^7.52.1",
@@ -28,6 +30,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/react-cookiebot": "^1.0.5",
     "eslint": "^8",
     "eslint-config-next": "14.2.5"
   }

@@ -38,22 +38,17 @@ const signUpSchema = z.object({
     ),
   role: z.enum(["parent", "pediatrician"], "Role is required"),
   gender: z.enum(["male", "female"], "Gender is required"),
-  profileImage: z
-    .any()
-    .optional()
-    // .refine((file) => {
-    //   if (!file) return true; 
+  profileImage: z.any().optional(),
+  // .refine((file) => {
+  //   if (!file) return true;
 
-    //   const validTypes = ["image/jpeg", "image/jpg", "image/png"];
-    //   const maxSizeInBytes = 2 * 1024 * 1024;
+  //   const validTypes = ["image/jpeg", "image/jpg", "image/png"];
+  //   const maxSizeInBytes = 2 * 1024 * 1024;
 
-    //   return file instanceof File && validTypes.includes(file.type) && file.size <= maxSizeInBytes;
-    // }, {
-    //   message: "Profile image must be a jpeg, jpg, or png file and less than 2MB",
-    // }),
-
-
-  
+  //   return file instanceof File && validTypes.includes(file.type) && file.size <= maxSizeInBytes;
+  // }, {
+  //   message: "Profile image must be a jpeg, jpg, or png file and less than 2MB",
+  // }),
 });
 
 const SignUp = () => {
@@ -67,6 +62,7 @@ const SignUp = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const [showPassword, setShowPassword] = useState(false);
 
   const { user, setUser } = useUser();
 
@@ -155,6 +151,7 @@ const SignUp = () => {
               {" "}
               Join EchoMed and Experience Pediatric Care like never before.
             </p>
+          
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -168,22 +165,36 @@ const SignUp = () => {
                 <p className={style.errMsg}>{errors.fullName.message}</p>
               )}
             </div>
+
             <div className={style.inputGroup}>
               <input type="email" placeholder="Email" {...register("email")} />
               {errors.email && (
                 <p className={style.errMsg}>{errors.email.message}</p>
               )}
             </div>
-            <div className={style.inputGroup}>
-              <input
-                type="password"
-                placeholder="Password"
-                {...register("password")}
-              />
+
+            <div className={style.inputGroupPassword}>
+              <div className={style.passwordInput}>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  {...register("password")}
+                />
+
+                <div  className={style.passwordVis}>
+                  {showPassword ? (
+                    <p onClick={() => setShowPassword((prev) => !prev)}>C</p>
+                  ) : (
+                    <p onClick={() => setShowPassword((prev) => !prev)}>O</p>
+                  )}
+                </div>
+              </div>
+
               {errors.password && (
                 <p className={style.errMsg}>{errors.password.message}</p>
               )}
             </div>
+
             <div className={style.inputGroup}>
               <select {...register("role")}>
                 <option value="">Select Role</option>
@@ -209,7 +220,11 @@ const SignUp = () => {
 
             <div className={style.inputGroup}>
               <label>Profile Image</label>
-              <input type="file" accept=".jpeg, .jpg, .png" {...register("profileImage")} />
+              <input
+                type="file"
+                accept=".jpeg, .jpg, .png"
+                {...register("profileImage")}
+              />
               {errors.profileImage && (
                 <p className={style.errMsg}>{errors.profileImage.message}</p>
               )}
@@ -268,210 +283,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-// 2. Sign-In Page with Placeholders
-// javascript
-// Copy code
-// // pages/signin.jsx
-
-// import { useState } from "react";
-// import { useAuth } from "../context/AuthContext";
-// import { auth } from "../lib/firebase";
-// import { signInWithEmailAndPassword } from "firebase/auth";
-// import { useForm } from "react-hook-form";
-// import { zodResolver } from "@hookform/resolvers/zod";
-// import * as z from "zod";
-// import { useRouter } from "next/router";
-
-// const schema = z.object({
-//   email: z.string().email({ message: "Invalid email address" }),
-//   password: z.string().min(8, { message: "Password must be at least 8 characters" }),
-// });
-
-// export default function SignIn() {
-//   const { register, handleSubmit, formState: { errors } } = useForm({
-//     resolver: zodResolver(schema),
-//   });
-//   const [error, setError] = useState("");
-//   const { currentUser } = useAuth();
-//   const router = useRouter();
-
-//   const onSubmit = async (data) => {
-//     setError(""); // Clear previous errors
-//     try {
-//       const userCredential = await signInWithEmailAndPassword(auth, data.email, data.password);
-//       const user = userCredential.user;
-
-//       if (!user.emailVerified) {
-//         setError("Please verify your email before signing in.");
-//         await auth.signOut(); // Sign the user out immediately
-//         return;
-//       }
-
-//       // Redirect to the user's dashboard
-//       router.push(`/dashboard/${user.uid}`);
-//     } catch (err) {
-//       setError("Failed to sign in. Please check your email and password.");
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h1>Sign In</h1>
-//       {error && <p style={{ color: "red" }}>{error}</p>}
-//       <form onSubmit={handleSubmit(onSubmit)}>
-//         <div>
-//           <input type="email" placeholder="Email" {...register("email")} />
-//           {errors.email && <p style={{ color: "red" }}>{errors.email.message}</p>}
-//         </div>
-//         <div>
-//           <input type="password" placeholder="Password" {...register("password")} />
-//           {errors.password && <p style={{ color: "red" }}>{errors.password.message}</p>}
-//         </div>
-//         <button type="submit">Sign In</button>
-//       </form>
-//     </div>
-//   );
-// }
-
-// const SignUp = () => {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [errors, setErrors] = useState({});
-//   const [isLoading, setIsLoading] = useState(false);
-//   const router = useRouter();
-
-//   const handleSignUp = async (e) => {
-//     e.preventDefault();
-//     setErrors({});
-//     try {
-//       setIsLoading(true);
-//       const result = signUpSchema.parse({ email, password });
-//       const userCredential = await createUserWithEmailAndPassword(
-//         auth,
-//         email,
-//         password
-//       );
-//       await sendEmailVerification(userCredential.user);
-
-//       //Temporarily store data on localstorage
-//       localStorage.setItem(
-//         "regData",
-//         JSON.stringify({
-//           fullname,
-//           email,
-//           password,
-//           role,
-//         })
-//       );
-
-//       alert("Verification email sent. Please check your inbox.");
-//       router.push("/SignIn");
-//     } catch (error) {
-//       if (error instanceof z.ZodError) {
-//         const fieldErrors = error.errors.reduce((acc, err) => {
-//           acc[err.path[0]] = err.message;
-//           return acc;
-//         }, {});
-//         setErrors(fieldErrors);
-//       } else {
-//         console.error("Error signing up:", error);
-//         alert(error.message);
-//       }
-//     } finally {
-//       setIsLoading(false);
-//     }
-//   };
-//   // <RegisterForm/>
-
-//   return (
-//     <section className={style.signUp}>
-//       <div className={style.signUpContainer}>
-//         <div className={style.signUpLeft}>
-//           <Image
-//             src="/assets/images/signupImg2.png"
-//             width={640}
-//             height={700}
-//             alt="signupImg"
-//           />
-//         </div>
-
-//         <div className={style.signUpRight}>
-//           <div className={style.signUpHeader}>
-//             <h2>Sign Up</h2>
-//             <p>
-//               {" "}
-//               Join EchoMed and Experience Pediatric Care like never before.
-//             </p>
-//           </div>
-
-//           <form onSubmit={handleSignUp} className={style.formMain}>
-//             <input
-//               type="email"
-//               value={email}
-//               onChange={(e) => setEmail(e.target.value)}
-//               placeholder="Email"
-//               required
-//             />
-//             {errors.email && <span>{errors.email}</span>}
-//             <input
-//               type="password"
-//               value={password}
-//               onChange={(e) => setPassword(e.target.value)}
-//               placeholder="Password"
-//               required
-//             />
-//             {errors.password && <span>{errors.password}</span>}
-
-//             <button
-//               type="submit"
-//               disabled={isLoading}
-//               className={style.signupBtn}
-//             >
-//               {isLoading ? <p>Loading...</p> : <p>SignUp</p>}
-//             </button>
-//           </form>
-
-//           <div className={style.orSeparator}>OR</div>
-//           <div className={style.socialLogin}>
-//             <Link href="/">
-//               <Image
-//                 width={30}
-//                 height={30}
-//                 src="/assets/images/new_facebook.png"
-//                 alt="Facebook"
-//               />
-//             </Link>
-//             <Link href="/">
-//               <Image
-//                 width={30}
-//                 height={30}
-//                 src="/assets/images/x.png"
-//                 alt="Twitter"
-//               />
-//             </Link>
-//             <Link href="/">
-//               <Image
-//                 width={30}
-//                 height={30}
-//                 src="/assets/images/instagram.jfif"
-//                 alt="Instagram"
-//               />
-//             </Link>
-//           </div>
-
-//           <div className={style.toSiginIn}>
-//             <p>
-//               Already have an account? <Link href="/SignIn">Sign In</Link>
-//             </p>
-//             <p>
-//               By signing up, you agree to our Terms of Service and Privacy
-//               Policy
-//             </p>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default SignUp;
